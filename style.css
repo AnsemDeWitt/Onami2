@@ -54,6 +54,10 @@ body {
     background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
 }
 
+#recommendationsCarousel {
+    padding: 0 2rem;
+}
+
 #recommendationsCarousel .carousel-control-prev,
 #recommendationsCarousel .carousel-control-next {
     width: 40px;
@@ -66,11 +70,11 @@ body {
 }
 
 #recommendationsCarousel .carousel-control-prev {
-    left: -20px;
+    left: 10px;
 }
 
 #recommendationsCarousel .carousel-control-next {
-    right: -20px;
+    right: 10px;
 }
 
 #recommendationsCarousel .carousel-control-prev:hover,
