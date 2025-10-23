@@ -54,12 +54,15 @@ body {
     background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
 }
 
-#recommendationsCarousel {
+#recommendationsCarousel,
+#continueWatchingCarousel {
     padding: 0 2rem;
 }
 
 #recommendationsCarousel .carousel-control-prev,
-#recommendationsCarousel .carousel-control-next {
+#recommendationsCarousel .carousel-control-next,
+#continueWatchingCarousel .carousel-control-prev,
+#continueWatchingCarousel .carousel-control-next {
     width: 40px;
     height: 40px;
     top: 50%;
@@ -69,21 +72,26 @@ body {
     opacity: 0.8;
 }
 
-#recommendationsCarousel .carousel-control-prev {
+#recommendationsCarousel .carousel-control-prev,
+#continueWatchingCarousel .carousel-control-prev {
     left: 10px;
 }
 
-#recommendationsCarousel .carousel-control-next {
+#recommendationsCarousel .carousel-control-next,
+#continueWatchingCarousel .carousel-control-next {
     right: 10px;
 }
 
 #recommendationsCarousel .carousel-control-prev:hover,
-#recommendationsCarousel .carousel-control-next:hover {
+#recommendationsCarousel .carousel-control-next:hover,
+#continueWatchingCarousel .carousel-control-prev:hover,
+#continueWatchingCarousel .carousel-control-next:hover {
     opacity: 1;
     background-color: rgba(0,0,0,0.8);
 }
 
-#recommendationsCarousel .carousel-indicators button {
+#recommendationsCarousel .carousel-indicators button,
+#continueWatchingCarousel .carousel-indicators button {
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -91,7 +99,8 @@ body {
     opacity: 0.5;
 }
 
-#recommendationsCarousel .carousel-indicators button.active {
+#recommendationsCarousel .carousel-indicators button.active,
+#continueWatchingCarousel .carousel-indicators button.active {
     opacity: 1;
 }
 
