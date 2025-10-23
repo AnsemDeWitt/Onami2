@@ -1,0 +1,241 @@
+/* Estilo para el fondo del body */
+body {
+    background-color: #212529;
+    color: #fff;
+}
+
+/* Logo del navbar */
+.navbar-brand .logo {
+    width: 120px;
+    height: 40px;
+}
+
+/* Botón de perfil */
+.profile-btn {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    background-color: #2A85A7;
+    border: 0;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Carrusel de Recomendaciones */
+.recommendation-card {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.recommendation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.recommendation-img {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.recommendation-card:hover .recommendation-img {
+    transform: scale(1.05);
+}
+
+.recommendation-card .card-img-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+}
+
+#recommendationsCarousel .carousel-control-prev,
+#recommendationsCarousel .carousel-control-next {
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 50%;
+    opacity: 0.8;
+}
+
+#recommendationsCarousel .carousel-control-prev {
+    left: -20px;
+}
+
+#recommendationsCarousel .carousel-control-next {
+    right: -20px;
+}
+
+#recommendationsCarousel .carousel-control-prev:hover,
+#recommendationsCarousel .carousel-control-next:hover {
+    opacity: 1;
+    background-color: rgba(0,0,0,0.8);
+}
+
+#recommendationsCarousel .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 4px;
+    opacity: 0.5;
+}
+
+#recommendationsCarousel .carousel-indicators button.active {
+    opacity: 1;
+}
+
+/* Carrusel Principal - Solo estilos que no se pueden hacer con Bootstrap */
+
+/* Altura del carrusel */
+#heroCarousel {
+    height: 85vh;
+}
+
+/* Altura de imágenes del carrusel */  
+.carousel-img {
+    height: 70vh;
+    object-fit: cover;
+}
+
+.carousel-video {
+    position: absolute;
+    top: 38%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 48%;
+    height: 60%;
+    z-index: 5;
+    padding: 0.5rem;
+}
+
+/* Indicadores como barritas */
+.carousel-indicators {
+    top: 20px;
+    bottom: auto;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 0;
+    transform: translateY(0);
+}
+
+.carousel-indicators button {
+    width: 34px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: rgba(255,255,255,0.25);
+    border: 0;
+    transition: transform .18s ease, background-color .18s ease;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-indicators button.active {
+    background-color: rgba(255,255,255,0.18);
+    transform: scale(1.02);
+    box-shadow: 0 0 6px rgba(0,0,0,0.12);
+}
+
+/* relleno animado dentro de cada barra */
+.carousel-indicators .indicator-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0%;
+    background-color: #ffffff;
+    opacity: 0.95;
+    border-radius: 4px;
+    pointer-events: none;
+    transform-origin: left center;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 576px) {
+    .carousel-indicators button { width: 26px; height: 6px; }
+    .carousel-indicators .indicator-fill { border-radius: 3px; }
+}
+
+/* --- Navbar: enlaces y botones blancos, hover a #2A85A7 --- */
+.navbar .nav-link,
+.navbar .nav-link:link,
+.navbar .nav-link:visited {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #2A85A7 !important;
+}
+
+/* Botones dentro de la navbar */
+.navbar .btn,
+.navbar .btn-link {
+    color: #ffffff !important;
+}
+
+.navbar .btn:hover,
+.navbar .btn-link:hover {
+    color: #2A85A7 !important;
+}
+
+/* Ajustes visuales del toggler */
+.navbar .navbar-toggler {
+    border-color: rgba(255,255,255,0.3);
+}
+
+.navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Estilo personalizado para botones primarios con color #2A85A7 */
+.btn-primary {
+    background-color: #2A85A7 !important;
+    border-color: #2A85A7 !important;
+    color: #ffffff !important;
+}
+
+.btn-primary:hover {
+    background-color: #236a87 !important;
+    border-color: #236a87 !important;
+    color: #ffffff !important;
+}
+
+.btn-primary:active,
+.btn-primary:focus {
+    background-color: #1f5a72 !important;
+    border-color: #1f5a72 !important;
+    box-shadow: 0 0 0 0.25rem rgba(42, 133, 167, 0.5) !important;
+}
+
+/* Estilos para la sección de series */
+.series-section {
+    padding: 8%;
+}
+
+.series-table {
+    color: #ffffff;
+}
+
+:root {
+    --text-white: #ffffff;
+    --section-padding: 8%;
+}
+
+.most-watched-series {
+    padding: var(--section-padding);
+}
+
+.series-data-table {
+    color: var(--text-white);
+}

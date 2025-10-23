@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRÁCTICA 1</title>
+    <link rel="icon" type="image/x-icon" href=".">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        :root {
+            --carousel-caption-bottom: 124px;
+        }
+
+        .carousel-caption-custom {
+            bottom: var(--carousel-caption-bottom);
+        }
+    </style>
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/logo1.png" class="img-fluid logo" alt="Logo">
+            </a>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ms-4 gap-3 me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Novetats</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Catàleg</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Merch</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Contacte</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-2">
+                    <form class="d-flex align-items-center m-0" role="search" onsubmit="event.preventDefault();">
+                        <div class="input-group input-group-sm">
+                            <input id="navSearchInput" type="search" class="form-control rounded-pill bg-light border-0 ps-3"
+                                   placeholder="Buscar..." aria-label="Buscar">
+                        </div>
+                        <button id="navSearchBtn" class="btn btn-link text-white p-0 ms-2 shadow-none" type="submit" title="Buscar" aria-label="Buscar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85zm-5.242.656a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+                            </svg>
+                        </button>
+                    </form>
+
+                    <button id="profileIconBtn" class="btn rounded-circle shadow-sm d-flex align-items-center justify-content-center profile-btn"
+                            aria-expanded="false" aria-controls="profileMenu" title="Perfil">
+                        <img src="images/profile.jpg" alt="Perfil" class="rounded-circle profile-img"
+                             onerror="this.style.display='none'; this.parentNode.insertAdjacentHTML('beforeend','<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;#ffffff&quot;><path d=&quot;M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3z&quot;/><path d=&quot;M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z&quot;/></svg>');">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carrusel-->
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="8000" data-bs-pause="hover">
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"><span class="indicator-fill"></span></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"
+                aria-label="Slide 2"><span class="indicator-fill"></span></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"
+                aria-label="Slide 3"><span class="indicator-fill"></span></button>
+        </div>
+
+        <div class="carousel-inner h-100">
+            <!-- Slide 1 -->
+            <div class="carousel-item active h-100 position-relative">
+                <img src="images/chainsawmovie.jpg" class="d-block w-100 carousel-img" alt="Slide 1">
+
+                <!-- trailer -->
+                <div class="carousel-video d-none d-md-block position-absolute start-0">
+                    <div class="ratio ratio-16x9 h-100">
+                        <iframe src="https://www.youtube.com/embed/tAzAhDNdehs?start=1&rel=0"
+                            title="YouTube video" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <!-- responsive -->
+                <div class="carousel-caption carousel-caption-custom position-absolute start-0 end-0 bg-black bg-opacity-25 px-0 py-3 w-100">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-8 col-lg-9 text-start text-md-start mb-3 mb-md-0">
+                                <h2 class="mb-1 fw-bold fs-4 text-white">Chainsaw Man - La pel·lícula: L'arc de Reze</h2>
+                                <p class="mb-0 fs-6 text-white">El dimoni de la motoserra arriba amb més acció, sang i bogeria!</p>
+                            </div>
+                            <div class="col-12 col-md-4 col-lg-3 d-flex justify-content-center justify-content-md-end">
+                                <a href="#" class="btn btn-primary btn-sm w-100 w-md-auto" role="button">Començar a veure EP1</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item h-100">
+                <img src="images/chainsaw.jpeg" class="d-block w-100 carousel-img" alt="Slide 2" style="object-position: center top;">
+                <div class="carousel-caption carousel-caption-custom position-absolute start-0 end-0 bg-black bg-opacity-25 px-0 py-3 w-100">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-8 col-lg-9 text-start text-md-start mb-3 mb-md-0">
+                                <h2 class="mb-1 fw-bold fs-4 text-white">Chainsaw Man</h2>
+                                <p class="mb-0 fs-6 text-white">Denji es un adolescent que viu amb Pochita, un dimoni motoserra.</p>
+                                <p class="mb-0 fs-6 text-white d-none d-sm-block">Sempre ha tingut una vida miserable, pero aviat, tot canviarà.</p>
+                            </div>
+                            <div class="col-12 col-md-4 col-lg-3 d-flex justify-content-center justify-content-md-end">
+                                <a href="#" class="btn btn-primary btn-sm w-100 w-md-auto" role="button">Començar a veure EP1</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item h-100">
+                <img src="images/slide3.jpg" class="d-block w-100 carousel-img" alt="Slide 3">
+                <div class="carousel-caption position-absolute start-0 end-0 bg-black bg-opacity-25 px-0 py-3 w-100" style="bottom: 124px;">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-8 col-lg-9 text-start text-md-start mb-3 mb-md-0">
+                                <h2 class="mb-1 fw-bold fs-4 text-white">Destacado 3</h2>
+                                <p class="mb-0 fs-6 text-white">Descripción breve o eslogan.</p>
+                            </div>
+                            <div class="col-12 col-md-4 col-lg-3 d-flex justify-content-center justify-content-md-end">
+                                <a href="#" class="btn btn-primary btn-sm w-100 w-md-auto" role="button">Començar a veure EP1</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- botons carrusel -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+
+    <!-- Contingut -->
+    <div class="container-fluid mt-3 col-md-11">
+        <div class="row">
+        </div>
+    </div>
+
+    <!-- Llistes -->
+    <section>
+        <div class="container-fluid col-md-11">
+            <div class="row">
+                <div class="col-md-8" id="Descripción">
+                    <h4>Les nostres recomanacions</h4>
+                    
+                    <!-- Carrusel de Recomendaciones -->
+                    <div id="recommendationsCarousel" class="carousel slide mb-4" data-bs-ride="false">
+                        <div class="carousel-inner">
+                            <!-- Slide 1 -->
+                            <div class="carousel-item active">
+                                <div class="row g-3">
+                                    <div class="col-6 col-md-4 col-lg-3">
+                                        <div class="card bg-dark text-white h-100 recommendation-card">
+                                            <img src="images/chainsaw.jpeg" class="card-img-top recommendation-img" alt="Chainsaw Man">
+                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
+                                                <h6 class="card-title mb-1">Chainsaw Man</h6>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <small class="text-muted">Acció</small>
+                                                    <button class="btn btn-sm btn-primary">▶</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-3">
+                                        <div class="card bg-dark text-white h-100 recommendation-card">
+                                            <img src="" class="card-img-top recommendation-img" alt="Attack on Titan">
+                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
+                                                <h6 class="card-title mb-1">Attack on Titan</h6>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <small class="text-muted">Thriller</small>
+                                                    <button class="btn btn-sm btn-primary">▶</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-3">
+                                        <div class="card bg-dark text-white h-100 recommendation-card">
+                                            <img src="" class="card-img-top recommendation-img" alt="My Hero Academia">
+                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
+                                                <h6 class="card-title mb-1">My Hero Academia</h6>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <small class="text-muted">Acció</small>
+                                                    <button class="btn btn-sm btn-primary">▶</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-3">
+                                        <div class="card bg-dark text-white h-100 recommendation-card">
+                                            <img src="" class="card-img-top recommendation-img" alt="Demon Slayer">
+                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
+                                                <h6 class="card-title mb-1">Demon Slayer</h6>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <small class="text-muted">Acció</small>
+                                                    <button class="btn btn-sm btn-primary">▶</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Slide 2 -->
+                            <div class="carousel-item">
+                                <div class="row g-3">
+                                    <div class="col-6 col-md-4 col-lg-3">
+                                        <div class="card bg-dark text-white h-100 recommendation-card">
+                                            <img src="" class="card-img-top recommendation-img" alt="One Piece">
+                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
+                                                <h6 class="card-title mb-1">One Piece</h6>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <small class="text-muted">Aventura</small>
+                                                    <button class="btn btn-sm btn-primary">▶</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-3">
+                                        <div class="card bg-dark text-white h-100 recommendation-card">
+                                            <img src="" class="card-img-top recommendation-img" alt="Naruto">
+                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
+                                                <h6 class="card-title mb-1">Naruto</h6>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <small class="text-muted">Acció</small>
+                                                    <button class="btn btn-sm btn-primary">▶</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-3">
+                                        <div class="card bg-dark text-white h-100 recommendation-card">
+                                            <img src="" class="card-img-top recommendation-img" alt="Death Note">
+                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
+                                                <h6 class="card-title mb-1">Death Note</h6>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <small class="text-muted">Thriller</small>
+                                                    <button class="btn btn-sm btn-primary">▶</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-md-4 col-lg-3">
+                                        <div class="card bg-dark text-white h-100 recommendation-card">
+                                            <img src="" class="card-img-top recommendation-img" alt="Tokyo Ghoul">
+                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
+                                                <h6 class="card-title mb-1">Tokyo Ghoul</h6>
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <small class="text-muted">Horror</small>
+                                                    <button class="btn btn-sm btn-primary">▶</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Controles del carrusel -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#recommendationsCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#recommendationsCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                        
+                        <!-- Indicadores -->
+                        <div class="carousel-indicators position-static mt-3 mb-0">
+                            <button type="button" data-bs-target="#recommendationsCarousel" data-bs-slide-to="0" class="active bg-secondary" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#recommendationsCarousel" data-bs-slide-to="1" class="bg-secondary" aria-label="Slide 2"></button>
+                        </div>
+                    </div>
+                    
+                    <h4>Continua veient</h4>
+                </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Grid-->
+    <section>
+        <div class="container-fluid col-md-11 series-section">
+            <h1>Les series més vistes</h1>
+            <table class="table table-dark series-table">
+                <thead>
+                    <tr>
+                        <th>Serie</th>
+                        <th>Gènere</th>
+                        <th>Temporades</th>
+                        <th>Capítols</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Chainsaw man</td>
+                        <td>Acció</td>
+                        <td>1</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>My hero academia</td>
+                        <td>Aventura i acció</td>
+                        <td>7</td>
+                        <td>185</td>
+                    </tr>
+                    <tr>
+                        <td>Attack on titan</td>
+                        <td>Acció i drama</td>
+                        <td>4</td>
+                        <td>87</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-white bg-dark">
+        <div class="container">
+            <section class="mt-5">
+                <div class="row text-center d-flex justify-content-center pt-5">
+                    <div class="col-md-2">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a href="" class="text-white">Contacte</a>
+                        </h6>
+                    </div>
+                    <div class="col-md-2">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a href="" class="text-white">Política de Cookies</a>
+                        </h6>
+                    </div>
+                    <div class="col-md-2">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a href="" class="text-white">Términis y condicions</a>
+                        </h6>
+                    </div>
+                    <div class="col-md-2">
+                        <h6 class="text-uppercase font-weight-bold">
+                            <a href="" class="text-white">Política de Privacitat</a>
+                        </h6>
+                    </div>
+                </div>
+            </section>
+            <section class="text-center mb-5">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-auto">
+                        <a href="https://facebook.com" class="btn btn-floating m-1" role="button">
+                            <img src="./images/facebook.png" alt="Facebook" class="img-fluid" width="24" height="24">
+                        </a>
+                        <a href="https://twitter.com" class="btn btn-floating m-1" role="button">
+                            <img src="./images/X.png" alt="Twitter" class="img-fluid" width="24" height="24">
+                        </a>
+                        <a href="https://tiktok.com" class="btn btn-floating m-1" role="button">
+                            <img src="./images/tk.png" alt="Tik Tok" class="img-fluid" width="24" height="24">
+                        </a>
+                        <a href="https://instagram.com" class="btn btn-floating m-1" role="button">
+                            <img src="./images/logo insta.png" alt="Instagram" class="img-fluid" width="24" height="24">
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="text-center p-3 footer-copyright">
+            © 2025 Copyright: developed by Jaume & Francesc
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        const CAROUSEL_ID = 'heroCarousel';
+        const interval = 8000;
+
+        const carouselEl = document.getElementById(CAROUSEL_ID);
+        if (!carouselEl) return;
+
+        const carouselInstance = new bootstrap.Carousel(carouselEl, {
+            interval: false,
+            ride: false,
+            pause: false
+        });
+
+        const indicators = Array.from(carouselEl.querySelectorAll('.carousel-indicators button'));
+        let slideTimer = null;
+
+        function clearTimer() {
+            if (slideTimer) {
+                clearTimeout(slideTimer);
+                slideTimer = null;
+            }
+        }
+
+        function resetAllFills() {
+            indicators.forEach(btn => {
+                const fill = btn.querySelector('.indicator-fill');
+                if (fill) {
+                    fill.style.transition = 'none';
+                    fill.style.width = '0%';
+                }
+            });
+        }
+
+        function startFillForIndex(index, duration = interval) {
+            clearTimer();
+            resetAllFills();
+
+            const btn = indicators[index];
+            if (!btn) return;
+            const fill = btn.querySelector('.indicator-fill');
+            if (!fill) return;
+
+            fill.style.transition = 'none';
+            fill.style.width = '0%';
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    fill.style.transition = `width ${duration}ms linear`;
+                    fill.style.width = '100%';
+                });
+            });
+
+            slideTimer = setTimeout(() => {
+                carouselInstance.next();
+            }, duration);
+        }
+
+        function getActiveIndex() {
+            const items = carouselEl.querySelectorAll('.carousel-item');
+            for (let i = 0; i < items.length; i++) {
+                if (items[i].classList.contains('active')) return i;
+            }
+            return 0;
+        }
+
+        // Inicializar cuando todo esté listo
+        function initializeCarousel() {
+            resetAllFills();
+            setTimeout(() => {
+                const activeIndex = getActiveIndex();
+                startFillForIndex(activeIndex);
+            }, 200);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeCarousel);
+        } else {
+            initializeCarousel();
+        }
+
+        carouselEl.addEventListener('slid.bs.carousel', (event) => {
+            clearTimer();
+            resetAllFills();
+            setTimeout(() => {
+                const activeIndex = getActiveIndex();
+                startFillForIndex(activeIndex);
+            }, 100);
+        });
+
+        indicators.forEach((btn, i) => {
+            btn.addEventListener('click', (ev) => {
+                ev.stopPropagation();
+                clearTimer();
+                resetAllFills();
+                carouselInstance.to(i);
+                // Esperamos un poco más para asegurar que el slide cambió
+                setTimeout(() => {
+                    const actualIndex = getActiveIndex();
+                    startFillForIndex(actualIndex);
+                }, 150);
+            });
+        });
+
+        let isHoverPaused = false;
+        carouselEl.addEventListener('mouseenter', () => {
+            if (isHoverPaused) return;
+            isHoverPaused = true;
+            clearTimer();
+            indicators.forEach(btn => {
+                const fill = btn.querySelector('.indicator-fill');
+                if (fill) {
+                    const computedPx = window.getComputedStyle(fill).width;
+                    fill.style.transition = 'none';
+                    fill.style.width = computedPx;
+                }
+            });
+        });
+
+        carouselEl.addEventListener('mouseleave', () => {
+            if (!isHoverPaused) return;
+            isHoverPaused = false;
+
+            const idx = getActiveIndex();
+            const btn = indicators[idx];
+            if (!btn) {
+                startFillForIndex(idx);
+                return;
+            }
+            const fill = btn.querySelector('.indicator-fill');
+            if (!fill) {
+                startFillForIndex(idx);
+                return;
+            }
+
+            const parentWidth = btn.clientWidth;
+            const currentPx = parseFloat(window.getComputedStyle(fill).width);
+            const percent = Math.min(100, (currentPx / parentWidth) * 100);
+            const remaining = Math.max(0, interval * (1 - percent / 100));
+
+            requestAnimationFrame(() => {
+                fill.style.transition = `width ${remaining}ms linear`;
+                fill.style.width = '100%';
+            });
+
+            slideTimer = setTimeout(() => {
+                carouselInstance.next();
+            }, remaining);
+        });
+
+        const controls = carouselEl.querySelectorAll('.carousel-control-prev, .carousel-control-next');
+        controls.forEach(ctrl => {
+            ctrl.addEventListener('click', () => {
+                clearTimer();
+                resetAllFills();
+                // El evento slid.bs.carousel se encargará de reiniciar la animación
+            });
+        });
+
+    })();
+    </script>
+</body>
+
+</html>
