@@ -214,7 +214,7 @@ input:focus,
 
 /* Caption específico para el tercer slide */
 .carousel-item:nth-child(3) .carousel-caption {
-    bottom: 115px !important;
+    bottom: 114px !important;
 }
 
 .carousel-video {
