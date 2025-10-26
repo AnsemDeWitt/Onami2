@@ -212,7 +212,12 @@ input:focus,
     object-position: center 20%;
 }
 
-/* Caption específico para el tercer slide */
+/* Posición unificada para todos los captions del carrusel principal */
+.carousel-caption-custom {
+    bottom: 113px !important;
+}
+
+/* Caption específico para el tercer slide - ya no necesario, pero mantenido para referencia */
 .carousel-item:nth-child(3) .carousel-caption {
     bottom: 113px !important;
 }
