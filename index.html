@@ -81,6 +81,8 @@
                 aria-label="Slide 2"><span class="indicator-fill"></span></button>
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"
                 aria-label="Slide 3"><span class="indicator-fill"></span></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3"
+                aria-label="Slide 4"><span class="indicator-fill"></span></button>
         </div>
 
         <div class="carousel-inner h-100">
@@ -361,64 +363,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            <!-- Slide 2 -->
-                            <div class="carousel-item">
-                                <div class="row g-3 justify-content-center">
-                                    <div class="col-md-4">
-                                        <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
-                                            <img src="" class="card-img-top recommendation-img" alt="Fullmetal Alchemist">
-                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
-                                                <h6 class="card-title mb-1">Fullmetal Alchemist</h6>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <small class="text-muted">Aventura</small>
-                                                    <button class="btn btn-sm btn-primary">▶</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
-                                            <img src="" class="card-img-top recommendation-img" alt="Bleach">
-                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
-                                                <h6 class="card-title mb-1">Bleach</h6>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <small class="text-muted">Acció</small>
-                                                    <button class="btn btn-sm btn-primary">▶</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
-                                            <img src="" class="card-img-top recommendation-img" alt="Dragon Ball Z">
-                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
-                                                <h6 class="card-title mb-1">Dragon Ball Z</h6>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <small class="text-muted">Acció</small>
-                                                    <button class="btn btn-sm btn-primary">▶</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Controles del carrusel -->
-                        <button class="carousel-control-prev" type="button" data-bs-target="#continueWatchingCarousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Anterior</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#continueWatchingCarousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Siguiente</span>
-                        </button>
-                        
-                        <!-- Indicadores -->
-                        <div class="carousel-indicators position-static mt-3 mb-0">
-                            <button type="button" data-bs-target="#continueWatchingCarousel" data-bs-slide-to="0" class="active bg-secondary" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#continueWatchingCarousel" data-bs-slide-to="1" class="bg-secondary" aria-label="Slide 2"></button>
                         </div>
                     </div>
                 </div>
@@ -567,7 +511,15 @@
             });
 
             slideTimer = setTimeout(() => {
-                carouselInstance.next();
+                // Verificar si estamos en el último slide
+                const totalSlides = carouselEl.querySelectorAll('.carousel-item').length;
+                if (index === totalSlides - 1) {
+                    // Si estamos en el último slide, ir al primero
+                    carouselInstance.to(0);
+                } else {
+                    // Si no, ir al siguiente
+                    carouselInstance.next();
+                }
             }, duration);
         }
 
