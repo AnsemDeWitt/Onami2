@@ -176,14 +176,6 @@ input:focus,
     bottom: 124px !important;
 }
 
-/* Estilos para el reproductor de video fallback */
-#fallbackVideo {
-    display: none;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .carousel-video {
     position: absolute;
     top: 38%;

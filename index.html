@@ -91,20 +91,10 @@
                 <!-- trailer -->
                 <div class="carousel-video d-none d-md-block position-absolute start-0">
                     <div class="ratio ratio-16x9 h-100">
-                        <!-- Intenta cargar el iframe de YouTube -->
-                        <iframe id="youtubePlayer" src="https://www.youtube.com/embed/tAzAhDNdehs?autoplay=0&mute=0&controls=1&rel=0&modestbranding=1"
-                            title="Chainsaw Man Trailer" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen
-                            loading="lazy"
-                            onerror="this.style.display='none'; document.getElementById('fallbackVideo').style.display='block';"></iframe>
-                        
-                        <!-- Fallback: reproductor local (oculto por defecto) -->
-                        <video id="fallbackVideo" controls>
-                            <source src="videos/chainsaw-trailer.mp4" type="video/mp4">
-                            <source src="videos/chainsaw-trailer.webm" type="video/webm">
-                            <p>Tu navegador no soporta el elemento video. <a href="https://www.youtube.com/watch?v=tAzAhDNdehs">Ver en YouTube</a></p>
-                        </video>
+                        <iframe src="https://www.youtube.com/embed/tAzAhDNdehs?start=1&rel=0"
+                            title="YouTube video" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                     </div>
                 </div>
 
@@ -695,71 +685,6 @@
         });
 
     })();
-    </script>
-    
-    <!-- Script para manejar problemas del reproductor de video -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const iframe = document.getElementById('youtubePlayer');
-        const fallbackVideo = document.getElementById('fallbackVideo');
-        
-        // Verificar si el iframe se carga correctamente
-        iframe.addEventListener('load', function() {
-            console.log('✅ Video de YouTube cargado correctamente');
-        });
-        
-        iframe.addEventListener('error', function() {
-            console.log('❌ Error al cargar el video de YouTube, activando fallback');
-            iframe.style.display = 'none';
-            fallbackVideo.style.display = 'block';
-        });
-        
-        // Timeout de seguridad - si el iframe no carga en 10 segundos
-        setTimeout(function() {
-            try {
-                // Intenta acceder al contenido del iframe
-                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                if (!iframeDoc || iframeDoc.body.innerHTML === '') {
-                    console.log('⚠️ Video de YouTube no responde, puede estar bloqueado');
-                    console.log('💡 Sugerencia: Verifica que el video permite embebido');
-                }
-            } catch (e) {
-                // Es normal que falle por CORS, significa que el iframe está funcionando
-                console.log('✅ Iframe protegido por CORS (funcionamiento normal)');
-            }
-        }, 3000);
-        
-        // Función para probar diferentes videos
-        window.testVideo = function(videoId) {
-            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=0&mute=0&controls=1&rel=0&modestbranding=1`;
-            console.log(`🔄 Probando video: ${videoId}`);
-        };
-        
-        // Lista de videos de prueba alternativos
-        const testVideos = [
-            'tAzAhDNdehs', // Chainsaw Man actual
-            'dFlDRhvM4L0', // Chainsaw Man oficial 
-            'M_OauHnAFj8', // Chainsaw Man trailer
-            'jQA_ORo_IY4'  // Video de prueba
-        ];
-        
-        // Función para probar el siguiente video si el actual falla
-        let currentVideoIndex = 0;
-        window.tryNextVideo = function() {
-            if (currentVideoIndex < testVideos.length - 1) {
-                currentVideoIndex++;
-                testVideo(testVideos[currentVideoIndex]);
-            } else {
-                console.log('❌ Todos los videos fallaron, mostrando fallback');
-                iframe.style.display = 'none';
-                fallbackVideo.style.display = 'block';
-            }
-        };
-        
-        console.log('🎬 Sistema de video inicializado');
-        console.log('🔧 Para probar otros videos, usa: testVideo("VIDEO_ID")');
-        console.log('🔄 Para probar el siguiente video: tryNextVideo()');
-    });
     </script>
     
     <!-- Archivo de animaciones GSAP -->
