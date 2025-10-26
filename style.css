@@ -103,6 +103,24 @@ input:focus,
     background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
 }
 
+/* Ocultar focus completamente en todas las flechas del carrusel */
+.carousel-control-prev:focus,
+.carousel-control-next:focus,
+.carousel-control-prev:focus-visible,
+.carousel-control-next:focus-visible,
+#recommendationsCarousel .carousel-control-prev:focus,
+#recommendationsCarousel .carousel-control-next:focus,
+#continueWatchingCarousel .carousel-control-prev:focus,
+#continueWatchingCarousel .carousel-control-next:focus,
+#recommendationsCarousel .carousel-control-prev:focus-visible,
+#recommendationsCarousel .carousel-control-next:focus-visible,
+#continueWatchingCarousel .carousel-control-prev:focus-visible,
+#continueWatchingCarousel .carousel-control-next:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
 #recommendationsCarousel,
 #continueWatchingCarousel {
     padding: 0 2rem;
@@ -148,14 +166,13 @@ input:focus,
     box-shadow: none !important;
 }
 
-/* Focus visible solo con teclado (TAB) */
+/* Ocultar focus completamente - sin focus visible ni con teclado */
 #recommendationsCarousel .carousel-control-prev:focus-visible,
 #recommendationsCarousel .carousel-control-next:focus-visible,
 #continueWatchingCarousel .carousel-control-prev:focus-visible,
 #continueWatchingCarousel .carousel-control-next:focus-visible {
-    outline: 2px solid #2A85A7 !important;
-    outline-offset: 2px !important;
-    box-shadow: 0 0 0 0.25rem rgba(42, 133, 167, 0.25) !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 #recommendationsCarousel .carousel-indicators button,
