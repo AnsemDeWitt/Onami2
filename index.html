@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRÁCTICA 1</title>
     <link rel="icon" type="image/x-icon" href=".">
+    
+    <!-- Bootstrap CSS & JS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- GSAP CDN -->
+    
+    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Mis estilos -->
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./gsap-optimizations.css">
-    <style>
-        :root {
-            --carousel-caption-bottom: 124px;
-        }
-
-        .carousel-caption-custom {
-            bottom: var(--carousel-caption-bottom);
-        }
-    </style>
 </head>
 
 <body>
-    <!--Navbar-->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -87,10 +82,11 @@
 
         <div class="carousel-inner h-100">
             <!-- Slide 1 -->
+            <!-- Slide 1: Chainsaw Man película -->
             <div class="carousel-item active h-100 position-relative">
                 <img src="images/chainsawmovie.jpg" class="d-block w-100 carousel-img" alt="Slide 1">
 
-                <!-- trailer -->
+                <!-- Video trailer -->
                 <div class="carousel-video d-none d-md-block position-absolute start-0">
                     <div class="ratio ratio-16x9 h-100">
                         <iframe src="https://www.youtube.com/embed/pv8A7eubPQQ?start=1&rel=0"
@@ -100,7 +96,7 @@
                     </div>
                 </div>
 
-                <!-- responsive -->
+                <!-- Caption -->
                 <div class="carousel-caption carousel-caption-custom position-absolute start-0 end-0 bg-black bg-opacity-25 px-0 py-3 w-100">
                     <div class="container">
                         <div class="row align-items-center">
@@ -116,6 +112,7 @@
                 </div>
             </div>
 
+            <!-- Slide 2: Chainsaw Man serie -->
             <div class="carousel-item h-100">
                 <img src="images/chainsaw.jpeg" class="d-block w-100 carousel-img" alt="Slide 2">
                 <div class="carousel-caption carousel-caption-custom position-absolute start-0 end-0 bg-black bg-opacity-25 px-0 py-3 w-100">
@@ -134,6 +131,7 @@
                 </div>
             </div>
 
+            <!-- Slide 3: Dr. House -->
             <div class="carousel-item h-100">
                 <img src="images/house.jpg" class="d-block w-100 carousel-img" alt="Slide 3">
                 <div class="carousel-caption carousel-caption-custom position-absolute start-0 end-0 bg-black bg-opacity-25 px-0 py-3 w-100">
@@ -170,7 +168,7 @@
             </div>
         </div>
 
-        <!-- botons carrusel -->
+        <!-- Controles carrusel -->
         <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Anterior</span>
@@ -182,13 +180,14 @@
     </div>
 
     <!-- Llistes -->
-    <section class="mt-1">
+    <!-- Sección recomendaciones -->
+    <section class="mt-0">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <h4 class="px-3">Les nostres recomanacions</h4>
                     
-                    <!-- Carrusel de Recomendaciones -->
+                    <!-- Carrusel recomendaciones -->
                     <div id="recommendationsCarousel" class="carousel slide mb-4" data-bs-ride="false">
                         <div class="carousel-inner">
                             <!-- Slide 1 -->
@@ -319,10 +318,10 @@
                     
                     <h4 class="px-3 mt-5">Continua veient</h4>
                     
-                    <!-- Carrusel de Continua Veient -->
+                    <!-- Carrusel continua veient -->
                     <div id="continueWatchingCarousel" class="carousel slide mb-4" data-bs-ride="false">
                         <div class="carousel-inner">
-                            <!-- Slide 1 -->
+                            <!-- Slide único -->
                             <div class="carousel-item active">
                                 <div class="row g-3 justify-content-center">
                                     <div class="col-md-4">
@@ -370,7 +369,7 @@
         </div>
     </section>
 
-    <!-- Sección Les teves llistes -->
+    <!-- Sección listas personalizadas -->
     <section class="mt-5">
         <div class="container-fluid">
             <div class="row">
@@ -427,7 +426,7 @@
         </div>
     </section>
 
-    <!--Grid-->
+    <!-- Series más vistas -->
     <section>
         <div class="container-fluid col-md-11 series-section">
             <h1>Les series més vistes</h1>
@@ -515,6 +514,7 @@
         </div>
     </footer>
 
+    <!-- Lógica del carrusel principal -->
     <script>
     (function () {
         const CAROUSEL_ID = 'heroCarousel';
@@ -532,6 +532,7 @@
         const indicators = Array.from(carouselEl.querySelectorAll('.carousel-indicators button'));
         let slideTimer = null;
 
+        // Limpiar timer
         function clearTimer() {
             if (slideTimer) {
                 clearTimeout(slideTimer);
@@ -539,6 +540,7 @@
             }
         }
 
+        // Reset todos los fills
         function resetAllFills() {
             indicators.forEach(btn => {
                 const fill = btn.querySelector('.indicator-fill');
@@ -549,6 +551,7 @@
             });
         }
 
+        // Iniciar animación de fill
         function startFillForIndex(index, duration = interval) {
             clearTimer();
             resetAllFills();
@@ -568,18 +571,17 @@
             });
 
             slideTimer = setTimeout(() => {
-                // Verificar si estamos en el último slide
+                // Manejar navegación al último slide
                 const totalSlides = carouselEl.querySelectorAll('.carousel-item').length;
                 if (index === totalSlides - 1) {
-                    // Si estamos en el último slide, ir al primero
                     carouselInstance.to(0);
                 } else {
-                    // Si no, ir al siguiente
                     carouselInstance.next();
                 }
             }, duration);
         }
 
+        // Obtener índice del slide activo
         function getActiveIndex() {
             const items = carouselEl.querySelectorAll('.carousel-item');
             for (let i = 0; i < items.length; i++) {
@@ -588,7 +590,7 @@
             return 0;
         }
 
-        // Inicializar cuando todo esté listo
+        // Inicializar carrusel
         function initializeCarousel() {
             resetAllFills();
             setTimeout(() => {
@@ -641,6 +643,7 @@
             });
         });
 
+        // Reanudar en mouse leave
         carouselEl.addEventListener('mouseleave', () => {
             if (!isHoverPaused) return;
             isHoverPaused = false;
@@ -672,19 +675,19 @@
             }, remaining);
         });
 
+        // Click en controles
         const controls = carouselEl.querySelectorAll('.carousel-control-prev, .carousel-control-next');
         controls.forEach(ctrl => {
             ctrl.addEventListener('click', () => {
                 clearTimer();
                 resetAllFills();
-                // El evento slid.bs.carousel se encargará de reiniciar la animación
             });
         });
 
     })();
     </script>
     
-    <!-- Archivo de animaciones GSAP -->
+    <!-- Animaciones GSAP -->
     <script src="./animations.js"></script>
 </body>
 

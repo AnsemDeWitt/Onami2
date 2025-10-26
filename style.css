@@ -1,16 +1,16 @@
-/* Estilo para el fondo del body */
+/* Estilo general */
 body {
     background-color: #212529;
     color: #fff;
 }
 
-/* Logo del navbar */
+/* Logo navbar */
 .navbar-brand .logo {
     width: 120px;
     height: 40px;
 }
 
-/* Botón de perfil */
+/* Botón perfil */
 .profile-btn {
     width: 44px;
     height: 44px;
@@ -26,13 +26,12 @@ body {
     border-radius: 50%;
 }
 
-/* Focus general para todos los elementos interactivos */
+/* Focus styles */
 *:focus {
     outline: 2px solid #2A85A7 !important;
     outline-offset: 2px !important;
 }
 
-/* Focus específico para botones */
 .btn:focus,
 button:focus {
     outline: 2px solid #2A85A7 !important;
@@ -40,21 +39,18 @@ button:focus {
     box-shadow: 0 0 0 0.25rem rgba(42, 133, 167, 0.25) !important;
 }
 
-/* Focus para links de navegación */
 .nav-link:focus {
     outline: 2px solid #2A85A7 !important;
     outline-offset: 2px !important;
     color: #2A85A7 !important;
 }
 
-/* Focus para inputs de búsqueda */
 input:focus,
 .form-control:focus {
     border-color: #2A85A7 !important;
     box-shadow: 0 0 0 0.25rem rgba(42, 133, 167, 0.25) !important;
 }
 
-/* Focus para tarjetas de recomendaciones */
 .recommendation-card:focus {
     outline: 2px solid #2A85A7 !important;
     outline-offset: 2px !important;
@@ -62,20 +58,18 @@ input:focus,
     box-shadow: 0 8px 16px rgba(0,0,0,0.3), 0 0 0 0.25rem rgba(42, 133, 167, 0.25) !important;
 }
 
-/* Focus para controles del carrusel */
 .carousel-control-prev:focus,
 .carousel-control-next:focus {
     outline: 2px solid #2A85A7 !important;
     outline-offset: 2px !important;
 }
 
-/* Focus para indicadores del carrusel */
 .carousel-indicators button:focus {
     outline: 2px solid #2A85A7 !important;
     outline-offset: 2px !important;
 }
 
-/* Carrusel de Recomendaciones */
+/* Cartas de recomendaciones */
 .recommendation-card {
     border: none;
     border-radius: 8px;
@@ -103,7 +97,7 @@ input:focus,
     background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
 }
 
-/* Ocultar focus completamente en todas las flechas del carrusel */
+/* Quito focus flechas carrusel */
 .carousel-control-prev:focus,
 .carousel-control-next:focus,
 .carousel-control-prev:focus-visible,
@@ -126,6 +120,7 @@ input:focus,
     padding: 0 2rem;
 }
 
+/* Controles carrusel recomendaciones */
 #recommendationsCarousel .carousel-control-prev,
 #recommendationsCarousel .carousel-control-next,
 #continueWatchingCarousel .carousel-control-prev,
@@ -157,7 +152,6 @@ input:focus,
     background-color: rgba(0,0,0,0.8);
 }
 
-/* Ocultar focus en hover/click, mantener solo en navegación por teclado */
 #recommendationsCarousel .carousel-control-prev:focus:not(:focus-visible),
 #recommendationsCarousel .carousel-control-next:focus:not(:focus-visible),
 #continueWatchingCarousel .carousel-control-prev:focus:not(:focus-visible),
@@ -166,7 +160,6 @@ input:focus,
     box-shadow: none !important;
 }
 
-/* Ocultar focus completamente - sin focus visible ni con teclado */
 #recommendationsCarousel .carousel-control-prev:focus-visible,
 #recommendationsCarousel .carousel-control-next:focus-visible,
 #continueWatchingCarousel .carousel-control-prev:focus-visible,
@@ -175,6 +168,7 @@ input:focus,
     box-shadow: none !important;
 }
 
+/* Indicadores carrusel */
 #recommendationsCarousel .carousel-indicators button,
 #continueWatchingCarousel .carousel-indicators button {
     width: 12px;
@@ -189,39 +183,35 @@ input:focus,
     opacity: 1;
 }
 
-/* Carrusel Principal - Solo estilos que no se pueden hacer con Bootstrap */
-
-/* Altura del carrusel */
+/* Carrusel principal */
 #heroCarousel {
     height: 85vh;
 }
 
-/* Altura de imágenes del carrusel */  
 .carousel-img {
     height: 70vh;
     object-fit: cover;
 }
 
-/* Posición específica para la segunda imagen del carrusel */
+/* Posición imágenes específicas */
 .carousel-item:nth-child(2) .carousel-img {
     object-position: center top;
 }
 
-/* Posición específica para la tercera imagen del carrusel (Dr. House) */
 .carousel-item:nth-child(3) .carousel-img {
     object-position: center 20%;
 }
 
-/* Posición unificada para todos los captions del carrusel principal */
+/* Todos los captions del carrusel principal */
 .carousel-caption-custom {
     bottom: 113px !important;
 }
 
-/* Caption específico para el tercer slide - ya no necesario, pero mantenido para referencia */
 .carousel-item:nth-child(3) .carousel-caption {
     bottom: 113px !important;
 }
 
+/* Video trailer */
 .carousel-video {
     position: absolute;
     top: 38%;
@@ -233,7 +223,7 @@ input:focus,
     padding: 0.5rem;
 }
 
-/* Indicadores como barritas */
+/* Indicadores como barras */
 .carousel-indicators {
     top: 20px;
     bottom: auto;
@@ -263,7 +253,7 @@ input:focus,
     box-shadow: 0 0 6px rgba(0,0,0,0.12);
 }
 
-/* relleno animado dentro de cada barra */
+/* Relleno animado */
 .carousel-indicators .indicator-fill {
     position: absolute;
     left: 0;
@@ -277,13 +267,13 @@ input:focus,
     transform-origin: left center;
 }
 
-/* Ajuste para pantallas pequeñas */
+/* Responsive para móvil */
 @media (max-width: 576px) {
     .carousel-indicators button { width: 26px; height: 6px; }
     .carousel-indicators .indicator-fill { border-radius: 3px; }
 }
 
-/* --- Navbar: enlaces y botones blancos, hover a #2A85A7 --- */
+/* Navbar */
 .navbar .nav-link,
 .navbar .nav-link:link,
 .navbar .nav-link:visited {
@@ -296,7 +286,6 @@ input:focus,
     color: #2A85A7 !important;
 }
 
-/* Botones dentro de la navbar */
 .navbar .btn,
 .navbar .btn-link {
     color: #ffffff !important;
@@ -307,7 +296,6 @@ input:focus,
     color: #2A85A7 !important;
 }
 
-/* Ajustes visuales del toggler */
 .navbar .navbar-toggler {
     border-color: rgba(255,255,255,0.3);
 }
@@ -316,7 +304,7 @@ input:focus,
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* Estilo personalizado para botones primarios con color #2A85A7 */
+/* Botones primarios */
 .btn-primary {
     background-color: #2A85A7 !important;
     border-color: #2A85A7 !important;
@@ -336,7 +324,7 @@ input:focus,
     box-shadow: 0 0 0 0.25rem rgba(42, 133, 167, 0.5) !important;
 }
 
-/* Estilos para la sección de series */
+/* Sección series */
 .series-section {
     padding: 8%;
 }
@@ -354,7 +342,7 @@ input:focus,
     padding: var(--section-padding);
 }
 
-/* Estilos para la sección "Les teves llistes" */
+/* Tarjetas de listas personalizadas */
 .list-card {
     background: linear-gradient(135deg, #2c3e50, #34495e);
     border: 2px solid #4a5568;
