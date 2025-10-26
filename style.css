@@ -207,6 +207,11 @@ input:focus,
     object-position: center top;
 }
 
+/* Posición específica para la tercera imagen del carrusel (Dr. House) */
+.carousel-item:nth-child(3) .carousel-img {
+    object-position: center 20%;
+}
+
 /* Caption específico para el tercer slide */
 .carousel-item:nth-child(3) .carousel-caption {
     bottom: 124px !important;
