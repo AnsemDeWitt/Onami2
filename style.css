@@ -2,7 +2,7 @@
 :root {
     --text-white: #ffffff;
     --section-padding: 8%;
-    --recommendations-top-spacing: 0px; /* Cambia este valor para ajustar posición */
+    --recommendations-top-spacing: -50px; /* MUCHO MÁS CERCA del carrusel principal */
 }
 
 /* Estilo general */
@@ -78,8 +78,9 @@ input:focus,
 
 /* Cartas de recomendaciones */
 .recommendations-section {
-    margin-top: var(--recommendations-top-spacing);
+    margin-top: -80px !important;
     position: relative;
+    z-index: 10;
 }
 
 .recommendation-card {
@@ -198,6 +199,29 @@ input:focus,
 /* Carrusel principal */
 #heroCarousel {
     height: 85vh;
+    position: relative;
+}
+
+/* Gradientes laterales discretos */
+#heroCarousel::before,
+#heroCarousel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+#heroCarousel::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(33, 37, 41, 0.6), transparent);
+}
+
+#heroCarousel::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(33, 37, 41, 0.6), transparent);
 }
 
 .carousel-img {
