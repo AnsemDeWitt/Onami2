@@ -166,6 +166,16 @@ input:focus,
     object-fit: cover;
 }
 
+/* Posición específica para la segunda imagen del carrusel */
+.carousel-item:nth-child(2) .carousel-img {
+    object-position: center top;
+}
+
+/* Caption específico para el tercer slide */
+.carousel-item:nth-child(3) .carousel-caption {
+    bottom: 124px !important;
+}
+
 .carousel-video {
     position: absolute;
     top: 38%;
