@@ -26,6 +26,55 @@ body {
     border-radius: 50%;
 }
 
+/* Focus general para todos los elementos interactivos */
+*:focus {
+    outline: 2px solid #2A85A7 !important;
+    outline-offset: 2px !important;
+}
+
+/* Focus específico para botones */
+.btn:focus,
+button:focus {
+    outline: 2px solid #2A85A7 !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 0.25rem rgba(42, 133, 167, 0.25) !important;
+}
+
+/* Focus para links de navegación */
+.nav-link:focus {
+    outline: 2px solid #2A85A7 !important;
+    outline-offset: 2px !important;
+    color: #2A85A7 !important;
+}
+
+/* Focus para inputs de búsqueda */
+input:focus,
+.form-control:focus {
+    border-color: #2A85A7 !important;
+    box-shadow: 0 0 0 0.25rem rgba(42, 133, 167, 0.25) !important;
+}
+
+/* Focus para tarjetas de recomendaciones */
+.recommendation-card:focus {
+    outline: 2px solid #2A85A7 !important;
+    outline-offset: 2px !important;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3), 0 0 0 0.25rem rgba(42, 133, 167, 0.25) !important;
+}
+
+/* Focus para controles del carrusel */
+.carousel-control-prev:focus,
+.carousel-control-next:focus {
+    outline: 2px solid #2A85A7 !important;
+    outline-offset: 2px !important;
+}
+
+/* Focus para indicadores del carrusel */
+.carousel-indicators button:focus {
+    outline: 2px solid #2A85A7 !important;
+    outline-offset: 2px !important;
+}
+
 /* Carrusel de Recomendaciones */
 .recommendation-card {
     border: none;
