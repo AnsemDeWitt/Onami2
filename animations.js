@@ -18,8 +18,11 @@ gsap.from("#heroCarousel", {
     delay: 0.3
 });
 
-// Animación títulos de secciones
+// Animación títulos de secciones (excepto recomendaciones)
 gsap.utils.toArray("h4").forEach((title, index) => {
+    // Saltar el título de recomendaciones ya que tiene su propia animación
+    if (title.closest('.recommendations-section')) return;
+    
     gsap.from(title, {
         scrollTrigger: {
             trigger: title,
@@ -35,21 +38,24 @@ gsap.utils.toArray("h4").forEach((title, index) => {
     });
 });
 
-// Animación cartas de recomendaciones
+// Animación cartas de recomendaciones (se inicia al cargar)
 gsap.utils.toArray(".recommendation-card").forEach((card, index) => {
     gsap.from(card, {
-        scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-            end: "bottom 15%",
-            toggleActions: "play none none reverse"
-        },
-        duration: 0.6,
-        y: 30,
+        duration: 0.8,
+        y: 40,
         opacity: 0,
         ease: "back.out(1.7)",
-        delay: index * 0.1
+        delay: 1.5 + (index * 0.1) // Delay después del carrusel
     });
+});
+
+// Animación título recomendaciones (se inicia al cargar)
+gsap.from(".recommendations-section h4", {
+    duration: 0.8,
+    x: -50,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 1.2
 });
 
 // Animación listas personalizadas

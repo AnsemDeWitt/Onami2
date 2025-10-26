@@ -70,6 +70,10 @@ input:focus,
 }
 
 /* Cartas de recomendaciones */
+.recommendations-section {
+    margin-top: -30px;
+}
+
 .recommendation-card {
     border: none;
     border-radius: 8px;
