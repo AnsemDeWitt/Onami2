@@ -112,8 +112,8 @@ input:focus,
 #recommendationsCarousel .carousel-control-next,
 #continueWatchingCarousel .carousel-control-prev,
 #continueWatchingCarousel .carousel-control-next {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0,0,0,0.6);
@@ -123,12 +123,12 @@ input:focus,
 
 #recommendationsCarousel .carousel-control-prev,
 #continueWatchingCarousel .carousel-control-prev {
-    left: 10px;
+    left: 15px;
 }
 
 #recommendationsCarousel .carousel-control-next,
 #continueWatchingCarousel .carousel-control-next {
-    right: 10px;
+    right: 15px;
 }
 
 #recommendationsCarousel .carousel-control-prev:hover,
@@ -137,6 +137,25 @@ input:focus,
 #continueWatchingCarousel .carousel-control-next:hover {
     opacity: 1;
     background-color: rgba(0,0,0,0.8);
+}
+
+/* Ocultar focus en hover/click, mantener solo en navegación por teclado */
+#recommendationsCarousel .carousel-control-prev:focus:not(:focus-visible),
+#recommendationsCarousel .carousel-control-next:focus:not(:focus-visible),
+#continueWatchingCarousel .carousel-control-prev:focus:not(:focus-visible),
+#continueWatchingCarousel .carousel-control-next:focus:not(:focus-visible) {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Focus visible solo con teclado (TAB) */
+#recommendationsCarousel .carousel-control-prev:focus-visible,
+#recommendationsCarousel .carousel-control-next:focus-visible,
+#continueWatchingCarousel .carousel-control-prev:focus-visible,
+#continueWatchingCarousel .carousel-control-next:focus-visible {
+    outline: 2px solid #2A85A7 !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 0.25rem rgba(42, 133, 167, 0.25) !important;
 }
 
 #recommendationsCarousel .carousel-indicators button,
