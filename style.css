@@ -71,7 +71,9 @@ input:focus,
 
 /* Cartas de recomendaciones */
 .recommendations-section {
-    margin-top: -30px;
+    margin-top: -15px;
+    position: relative;
+    z-index: 2;
 }
 
 .recommendation-card {
@@ -195,6 +197,52 @@ input:focus,
 .carousel-img {
     height: 70vh;
     object-fit: cover;
+}
+
+/* Elemento de transición visual */
+.carousel-transition {
+    position: relative;
+    height: 60px;
+    background: linear-gradient(180deg, rgba(33, 37, 41, 0.8) 0%, rgba(33, 37, 41, 0.4) 50%, transparent 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.transition-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, #2A85A7 50%, transparent 100%);
+    opacity: 0.1;
+}
+
+.transition-dots {
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+}
+
+.transition-dots .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.transition-dots .dot.active {
+    background-color: #2A85A7;
+    box-shadow: 0 0 10px rgba(42, 133, 167, 0.6);
+    transform: scale(1.2);
+}
+
+.transition-dots .dot:hover {
+    background-color: rgba(42, 133, 167, 0.7);
+    transform: scale(1.1);
 }
 
 /* Posición imágenes específicas */
