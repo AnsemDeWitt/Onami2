@@ -97,7 +97,7 @@ body {
 
 /* Posicionamiento responsive del botón de perfil */
 .profile-btn-responsive {
-    margin-left: 1rem;
+    margin-left: 1.5rem;
 }
 
 @media (max-width: 767.98px) {
