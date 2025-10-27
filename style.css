@@ -125,13 +125,11 @@ body {
 .navbar-toggler-centered {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
     top: 50%;
     transform: translate(-50%, -50%);
+    z-index: 1000;
     padding: 8px;
 }
-
 .profile-btn-mobile {
     position: absolute;
     right: 15px;
@@ -287,7 +285,7 @@ body {
     margin: 0;
     opacity: 0;
     transform: translateY(-10px);
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .user-dropdown-external.show .user-dropdown-menu {
@@ -860,16 +858,6 @@ input:focus,
 .social-btn:hover {
     background: #2A85A7;
     border-color: #2A85A7;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(42, 133, 167, 0.4);
-}
-
-.social-btn img {
-    transition: transform 0.3s ease;
-}
-
-.social-btn:hover img {
-    transform: scale(1.1);
 }
 
 .footer-bottom {
@@ -1023,11 +1011,6 @@ input:focus,
     transition: all 0.3s ease;
 }
 
-.social-btn svg {
-    transition: all 0.3s ease;
-}
-
-/* Hover effects para iconos específicos */
 .social-btn:hover {
     color: #ffffff;
     text-decoration: none;
@@ -1061,15 +1044,6 @@ input:focus,
 .social-btn:hover:nth-child(5) {
     background: #ff0000;
     border-color: #ff0000;
-}
-
-/* Animación de hover más suave */
-.social-btn:hover svg {
-    transform: scale(1.1) rotate(5deg);
-}
-
-.social-btn:active {
-    transform: translateY(-2px);
 }
 
 /* Responsive para iconos sociales */
