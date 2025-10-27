@@ -298,6 +298,12 @@ body {
     align-items: center;
 }
 
+/* Iconos del menú desplegable */
+.user-dropdown-item .dropdown-icon {
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
 .user-dropdown-external .user-dropdown-item:hover {
     background: linear-gradient(135deg, #2A85A7, #1f5a72);
     color: #ffffff;
@@ -367,8 +373,8 @@ input:focus,
 }
 
 .carousel-indicators button:focus {
-    outline: 2px solid #2A85A7 !important;
-    outline-offset: 2px !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 /* Cartas de recomendaciones */
@@ -495,6 +501,15 @@ input:focus,
 #recommendationsCarousel .carousel-indicators button.active,
 #continueWatchingCarousel .carousel-indicators button.active {
     opacity: 1;
+}
+
+/* Desactivar hover en indicadores del carrusel de recomendaciones */
+#recommendationsCarousel .carousel-indicators button:hover {
+    opacity: 0.5 !important;
+}
+
+#recommendationsCarousel .carousel-indicators button.active:hover {
+    opacity: 1 !important;
 }
 
 /* Carrusel principal */
@@ -991,5 +1006,80 @@ input:focus,
 @media (max-width: 480px) {
     .catalog-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ====== ICONOS SOCIALES FOOTER ====== */
+.social-btn {
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.social-btn svg {
+    transition: all 0.3s ease;
+}
+
+/* Hover effects para iconos específicos */
+.social-btn:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Facebook */
+.social-btn:hover:nth-child(1) {
+    background: #1877f2;
+    border-color: #1877f2;
+}
+
+/* X (Twitter) */
+.social-btn:hover:nth-child(2) {
+    background: #000000;
+    border-color: #000000;
+}
+
+/* TikTok */
+.social-btn:hover:nth-child(3) {
+    background: linear-gradient(135deg, #ff0050, #00f2ea);
+    border-color: #ff0050;
+}
+
+/* Instagram */
+.social-btn:hover:nth-child(4) {
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    border-color: #833ab4;
+}
+
+/* YouTube */
+.social-btn:hover:nth-child(5) {
+    background: #ff0000;
+    border-color: #ff0000;
+}
+
+/* Animación de hover más suave */
+.social-btn:hover svg {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.social-btn:active {
+    transform: translateY(-2px);
+}
+
+/* Responsive para iconos sociales */
+@media (max-width: 768px) {
+    .social-media {
+        justify-content: center;
+        margin-top: 20px;
+    }
+    
+    .social-btn {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-btn {
+        width: 45px;
+        height: 45px;
     }
 }
