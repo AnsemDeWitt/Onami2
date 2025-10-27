@@ -369,6 +369,12 @@ input:focus,
     background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
 }
 
+/* Cambiar color de etiquetas de género en carruseles de gris a blanco */
+.recommendation-card .text-muted,
+#continueWatchingCarousel .text-muted {
+    color: #ffffff !important;
+}
+
 /* Quito focus flechas carrusel */
 .carousel-control-prev:focus,
 .carousel-control-next:focus,
