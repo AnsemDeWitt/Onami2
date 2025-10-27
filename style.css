@@ -17,6 +17,12 @@ body {
     height: 40px;
 }
 
+/* Navbar con z-index alto */
+.navbar {
+    z-index: 999998 !important;
+    position: relative;
+}
+
 /* Botón perfil */
 .profile-btn {
     width: 44px;
@@ -91,7 +97,12 @@ body {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         margin-top: 0;
         padding: 1rem;
-        z-index: 999;
+        z-index: 999999 !important;
+    }
+    
+    /* Asegurar que el menú esté por encima de todos los elementos del carrusel */
+    .navbar-collapse.show {
+        z-index: 999999 !important;
     }
 }
 
