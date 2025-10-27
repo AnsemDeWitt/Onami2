@@ -695,6 +695,31 @@ input:focus,
     color: var(--text-white);
 }
 
+/* Botón Veure més */
+.veure-mes-btn {
+    background: transparent;
+    border: 2px solid #2A85A7;
+    color: #2A85A7;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.veure-mes-btn:hover {
+    background: linear-gradient(135deg, #2A85A7, #1f5a72);
+    border-color: #2A85A7;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(42, 133, 167, 0.3);
+}
+
+.veure-mes-btn:focus {
+    box-shadow: 0 0 0 0.25rem rgba(42, 133, 167, 0.25);
+}
+
 /* Footer moderno */
 .modern-footer {
     background: linear-gradient(135deg, #1a1d23 0%, #2c3e50 100%);
