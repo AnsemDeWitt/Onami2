@@ -19,16 +19,22 @@
 <body>
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="#" onclick="scrollToTop(); return false;">
                 <img src="images/logo1.png" class="img-fluid logo" alt="Logo">
             </a>
-            <!-- Botón hamburguesa - SOLO en móviles -->
-            <button class="navbar-toggler d-md-none navbar-toggler-centered" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            
+            <!-- Barra de búsqueda móvil - visible en móvil, oculta en desktop -->
+            <div class="d-md-none mobile-search-container">
+                <form class="d-flex align-items-center m-0" role="search" onsubmit="event.preventDefault();">
+                    <div class="input-group input-group-sm">
+                        <input id="mobileSearchInput" type="search"
+                            class="form-control rounded-pill bg-light border-0 ps-3 mobile-search-input" placeholder="Buscar..."
+                            aria-label="Buscar">
+                    </div>
+                </form>
+            </div>
+            
+            <div class="collapse navbar-collapse d-none d-md-flex" id="collapsibleNavbar">
                 <ul class="navbar-nav ms-md-4 gap-md-3 me-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#novetats">Novetats</a>
@@ -48,9 +54,8 @@
                 </ul>
 
                 <!-- Buscador - aparece en el menú hamburguesa en móvil -->
-                <div
-                    class="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-2 mt-3 mt-md-0 search-container">
-                    <form class="d-flex align-items-center m-0 w-100" role="search" onsubmit="event.preventDefault();">
+                <div class="d-flex align-items-center search-container">
+                    <form class="d-flex align-items-center m-0" role="search" onsubmit="event.preventDefault();">
                         <div class="input-group input-group-sm">
                             <input id="navSearchInput" type="search"
                                 class="form-control rounded-pill bg-light border-0 ps-3" placeholder="Buscar..."
@@ -70,7 +75,7 @@
         </div>
     </nav>
 
-    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="8000" data-bs-pause="hover">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="false">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"
                 aria-label="Slide 1"><span class="indicator-fill"></span></button>
@@ -1115,91 +1120,116 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
-    <!-- Debug del menú hamburguesa -->
+    <!-- BARRAS DE PROGRESO CARRUSEL - CON AUTO-ADVANCE -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Bootstrap cargado:', typeof bootstrap !== 'undefined');
-            
-            // BARRAS DE PROGRESO CARRUSEL PRINCIPAL
-            const heroCarousel = document.querySelector('#heroCarousel');
-            const indicators = heroCarousel.querySelectorAll('.carousel-indicators .indicator-fill');
-            const interval = 8000; // 8 segundos como está configurado
-            let activeIndex = 0;
-            let progressInterval;
+        // Función para scroll suave al inicio
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
 
-            function updateProgress() {
-                // Resetear todas las barras
-                indicators.forEach(indicator => {
-                    indicator.style.width = '0%';
-                    indicator.style.transition = 'none';
-                });
-                
-                // Animar la barra activa
-                setTimeout(() => {
-                    const activeIndicator = indicators[activeIndex];
-                    if (activeIndicator) {
-                        activeIndicator.style.transition = `width ${interval}ms linear`;
-                        activeIndicator.style.width = '100%';
-                    }
-                }, 50);
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Iniciando barras de progreso...');
+            
+            const heroCarousel = document.querySelector('#heroCarousel');
+            const progressBars = document.querySelectorAll('#heroCarousel .indicator-fill');
+            const bootstrapCarousel = new bootstrap.Carousel(heroCarousel, {
+                interval: false, // Desactivamos el auto-advance de Bootstrap
+                ride: false
+            });
+            
+            console.log('Carrusel encontrado:', heroCarousel);
+            console.log('Barras encontradas:', progressBars.length);
+            
+            if (!heroCarousel || progressBars.length === 0) {
+                console.error('No se encontraron elementos necesarios');
+                return;
             }
 
-            function startProgress() {
-                updateProgress();
-                progressInterval = setInterval(() => {
-                    activeIndex = (activeIndex + 1) % indicators.length;
-                    updateProgress();
-                }, interval);
+            let currentSlide = 0;
+            let progressTimeout;
+            let isAnimating = false;
+            const slideInterval = 8000; // 8 segundos
+
+            function resetAllBars() {
+                progressBars.forEach((bar, index) => {
+                    bar.style.width = '0%';
+                    bar.style.transition = 'none';
+                });
+            }
+
+            function animateCurrentBar() {
+                if (isAnimating) return;
+                
+                console.log(`Animando barra ${currentSlide}`);
+                resetAllBars();
+                isAnimating = true;
+                
+                setTimeout(() => {
+                    const currentBar = progressBars[currentSlide];
+                    if (currentBar) {
+                        currentBar.style.transition = `width ${slideInterval}ms linear`;
+                        currentBar.style.width = '100%';
+                        console.log(`Barra ${currentSlide} animándose a 100%`);
+                        
+                        // Cuando termine la animación, pasar al siguiente slide
+                        progressTimeout = setTimeout(() => {
+                            console.log('Barra completada, pasando al siguiente slide');
+                            currentSlide = (currentSlide + 1) % progressBars.length;
+                            bootstrapCarousel.to(currentSlide);
+                            isAnimating = false;
+                            animateCurrentBar(); // Iniciar la siguiente animación
+                        }, slideInterval);
+                    }
+                }, 100);
             }
 
             function stopProgress() {
-                clearInterval(progressInterval);
-                indicators.forEach(indicator => {
-                    indicator.style.transition = 'none';
-                });
+                console.log('Parando progreso');
+                clearTimeout(progressTimeout);
+                isAnimating = false;
+                resetAllBars();
             }
 
-            // Eventos del carrusel
-            heroCarousel.addEventListener('slide.bs.carousel', function(e) {
-                activeIndex = e.to;
-                updateProgress();
+            function restartProgress() {
+                stopProgress();
+                setTimeout(() => {
+                    animateCurrentBar();
+                }, 200);
+            }
+
+            // Eventos del carrusel - solo para clicks manuales
+            heroCarousel.addEventListener('slide.bs.carousel', function(event) {
+                if (event.to !== currentSlide) {
+                    console.log('Cambio manual a slide:', event.to);
+                    currentSlide = event.to;
+                    restartProgress();
+                }
             });
 
-            heroCarousel.addEventListener('mouseenter', stopProgress);
-            heroCarousel.addEventListener('mouseleave', startProgress);
-
-            // Iniciar progreso
-            startProgress();
+            // Iniciar inmediatamente
+            console.log('Iniciando barras de progreso...');
+            animateCurrentBar();
             
-            // DEBUG MENÚ HAMBURGUESA
-            const navbarToggler = document.querySelector('.navbar-toggler');
-            const navbarCollapse = document.querySelector('#collapsibleNavbar');
+            // NAVBAR STICKY CON EFECTO DE SCROLL
+            const navbar = document.querySelector('.navbar');
+            let lastScrollTop = 0;
             
-            if (navbarToggler) {
-                console.log('Botón hamburguesa encontrado');
-                navbarToggler.addEventListener('click', function() {
-                    console.log('Click en hamburguesa detectado');
-                    console.log('Collapse element:', navbarCollapse);
-                    console.log('Has show class:', navbarCollapse.classList.contains('show'));
-                });
-            } else {
-                console.error('Botón hamburguesa NO encontrado');
-            }
-            
-            if (navbarCollapse) {
-                console.log('Elemento collapse encontrado');
-                navbarCollapse.addEventListener('show.bs.collapse', function () {
-                    console.log('Menú se está abriendo');
-                });
-                navbarCollapse.addEventListener('shown.bs.collapse', function () {
-                    console.log('Menú abierto');
-                });
-                navbarCollapse.addEventListener('hide.bs.collapse', function () {
-                    console.log('Menú se está cerrando');
-                });
-            } else {
-                console.error('Elemento collapse NO encontrado');
-            }
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > 50) {
+                    // Cuando se hace scroll hacia abajo
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    // Cuando está en la parte superior
+                    navbar.classList.remove('navbar-scrolled');
+                }
+                
+                lastScrollTop = scrollTop;
+            });
         });
     </script>
     
