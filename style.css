@@ -27,11 +27,20 @@ body {
 .profile-btn {
     width: 44px;
     height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    max-width: 44px;
+    max-height: 44px;
     padding: 0;
     background-color: #2A85A7;
     border: 0;
+    border-radius: 50% !important;
     position: relative;
     z-index: 99999 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 .profile-btn::after {
@@ -43,6 +52,7 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+    display: block;
 }
 
 /* Navbar responsivo */
@@ -307,42 +317,6 @@ input:focus,
 
 .recommendation-card .card-img-overlay {
     background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
-}
-
-/* Estilos específicos para carrusel de recomendaciones en móvil */
-@media (max-width: 767.98px) {
-    .mobile-single-card {
-        max-width: 280px;
-        width: 100%;
-    }
-    
-    .mobile-indicators {
-        gap: 6px;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 0 20px;
-    }
-    
-    .mobile-indicators button {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        margin: 2px;
-        opacity: 0.5;
-        transition: all 0.3s ease;
-    }
-    
-    .mobile-indicators button.active {
-        opacity: 1;
-        transform: scale(1.3);
-        background-color: #007bff !important;
-    }
-    
-    /* Hacer las tarjetas más centradas en móvil */
-    #recommendationsCarousel .carousel-item .row {
-        margin: 0;
-        justify-content: center;
-    }
 }
 
 /* Quito focus flechas carrusel */
