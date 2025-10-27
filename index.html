@@ -22,6 +22,7 @@
             <a class="navbar-brand" href="#">
                 <img src="images/logo1.png" class="img-fluid logo" alt="Logo">
             </a>
+            <!-- Botón hamburguesa - SOLO en móviles -->
             <button class="navbar-toggler d-md-none navbar-toggler-centered" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -788,12 +789,18 @@
             const interval = 8000;
 
             const carouselEl = document.getElementById(CAROUSEL_ID);
-            if (!carouselEl) return;
+            if (!carouselEl) {
+                console.error('Carrusel no encontrado');
+                return;
+            }
 
+            console.log('Iniciando carrusel...');
+
+            // Usar configuración simple para que funcione con Bootstrap
             const carouselInstance = new bootstrap.Carousel(carouselEl, {
-                interval: false,
-                ride: false,
-                pause: false
+                interval: interval,
+                ride: false,        // No iniciar automáticamente
+                pause: 'hover'
             });
 
             const indicators = Array.from(carouselEl.querySelectorAll('.carousel-indicators button'));
@@ -820,24 +827,38 @@
 
             // Iniciar animación de fill
             function startFillForIndex(index, duration = interval) {
+                console.log(`Iniciando fill para índice ${index}, duración ${duration}ms`);
                 clearTimer();
                 resetAllFills();
 
                 const btn = indicators[index];
-                if (!btn) return;
+                if (!btn) {
+                    console.error('Botón no encontrado para índice:', index);
+                    return;
+                }
                 const fill = btn.querySelector('.indicator-fill');
-                if (!fill) return;
+                if (!fill) {
+                    console.error('Fill no encontrado para índice:', index);
+                    return;
+                }
 
+                console.log('Elemento fill encontrado, iniciando animación...');
+                
+                // Resetear el fill
                 fill.style.transition = 'none';
                 fill.style.width = '0%';
+                
+                // Forzar redibujado y luego animar
                 requestAnimationFrame(() => {
                     requestAnimationFrame(() => {
                         fill.style.transition = `width ${duration}ms linear`;
                         fill.style.width = '100%';
+                        console.log('Animación iniciada');
                     });
                 });
 
                 slideTimer = setTimeout(() => {
+                    console.log('Timer completado, cambiando slide...');
                     // Manejar navegación al último slide
                     const totalSlides = carouselEl.querySelectorAll('.carousel-item').length;
                     if (index === totalSlides - 1) {
@@ -859,26 +880,31 @@
 
             // Inicializar carrusel
             function initializeCarousel() {
+                console.log('Inicializando carrusel...');
                 resetAllFills();
-                setTimeout(() => {
-                    const activeIndex = getActiveIndex();
-                    startFillForIndex(activeIndex);
-                }, 200);
+                // Iniciar inmediatamente la primera barra
+                const activeIndex = getActiveIndex();
+                console.log('Índice activo:', activeIndex);
+                startFillForIndex(activeIndex);
             }
 
+            // Inicializar cuando el DOM esté listo
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', initializeCarousel);
             } else {
-                initializeCarousel();
+                // DOM ya está listo
+                setTimeout(initializeCarousel, 100);
             }
 
             carouselEl.addEventListener('slid.bs.carousel', (event) => {
+                // Pausar Bootstrap para tomar control manual
+                carouselInstance.pause();
                 clearTimer();
                 resetAllFills();
                 setTimeout(() => {
                     const activeIndex = getActiveIndex();
                     startFillForIndex(activeIndex);
-                }, 100);
+                }, 50);
             });
 
             indicators.forEach((btn, i) => {
@@ -1088,6 +1114,95 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Debug del menú hamburguesa -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Bootstrap cargado:', typeof bootstrap !== 'undefined');
+            
+            // BARRAS DE PROGRESO CARRUSEL PRINCIPAL
+            const heroCarousel = document.querySelector('#heroCarousel');
+            const indicators = heroCarousel.querySelectorAll('.carousel-indicators .indicator-fill');
+            const interval = 8000; // 8 segundos como está configurado
+            let activeIndex = 0;
+            let progressInterval;
+
+            function updateProgress() {
+                // Resetear todas las barras
+                indicators.forEach(indicator => {
+                    indicator.style.width = '0%';
+                    indicator.style.transition = 'none';
+                });
+                
+                // Animar la barra activa
+                setTimeout(() => {
+                    const activeIndicator = indicators[activeIndex];
+                    if (activeIndicator) {
+                        activeIndicator.style.transition = `width ${interval}ms linear`;
+                        activeIndicator.style.width = '100%';
+                    }
+                }, 50);
+            }
+
+            function startProgress() {
+                updateProgress();
+                progressInterval = setInterval(() => {
+                    activeIndex = (activeIndex + 1) % indicators.length;
+                    updateProgress();
+                }, interval);
+            }
+
+            function stopProgress() {
+                clearInterval(progressInterval);
+                indicators.forEach(indicator => {
+                    indicator.style.transition = 'none';
+                });
+            }
+
+            // Eventos del carrusel
+            heroCarousel.addEventListener('slide.bs.carousel', function(e) {
+                activeIndex = e.to;
+                updateProgress();
+            });
+
+            heroCarousel.addEventListener('mouseenter', stopProgress);
+            heroCarousel.addEventListener('mouseleave', startProgress);
+
+            // Iniciar progreso
+            startProgress();
+            
+            // DEBUG MENÚ HAMBURGUESA
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('#collapsibleNavbar');
+            
+            if (navbarToggler) {
+                console.log('Botón hamburguesa encontrado');
+                navbarToggler.addEventListener('click', function() {
+                    console.log('Click en hamburguesa detectado');
+                    console.log('Collapse element:', navbarCollapse);
+                    console.log('Has show class:', navbarCollapse.classList.contains('show'));
+                });
+            } else {
+                console.error('Botón hamburguesa NO encontrado');
+            }
+            
+            if (navbarCollapse) {
+                console.log('Elemento collapse encontrado');
+                navbarCollapse.addEventListener('show.bs.collapse', function () {
+                    console.log('Menú se está abriendo');
+                });
+                navbarCollapse.addEventListener('shown.bs.collapse', function () {
+                    console.log('Menú abierto');
+                });
+                navbarCollapse.addEventListener('hide.bs.collapse', function () {
+                    console.log('Menú se está cerrando');
+                });
+            } else {
+                console.error('Elemento collapse NO encontrado');
+            }
+        });
+    </script>
+    
     <script src="./animations.js"></script>
 </body>
 
