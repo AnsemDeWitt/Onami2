@@ -282,6 +282,42 @@ input:focus,
     background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
 }
 
+/* Estilos específicos para carrusel de recomendaciones en móvil */
+@media (max-width: 767.98px) {
+    .mobile-single-card {
+        max-width: 280px;
+        width: 100%;
+    }
+    
+    .mobile-indicators {
+        gap: 6px;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 20px;
+    }
+    
+    .mobile-indicators button {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin: 2px;
+        opacity: 0.5;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-indicators button.active {
+        opacity: 1;
+        transform: scale(1.3);
+        background-color: #007bff !important;
+    }
+    
+    /* Hacer las tarjetas más centradas en móvil */
+    #recommendationsCarousel .carousel-item .row {
+        margin: 0;
+        justify-content: center;
+    }
+}
+
 /* Quito focus flechas carrusel */
 .carousel-control-prev:focus,
 .carousel-control-next:focus,
