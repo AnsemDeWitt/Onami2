@@ -24,6 +24,11 @@ body {
     padding: 0;
     background-color: #2A85A7;
     border: 0;
+    position: relative;
+}
+
+.profile-btn::after {
+    display: none !important; /* Ocultar la flecha de dropdown por defecto */
 }
 
 .profile-img {
@@ -31,6 +36,47 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+}
+
+/* Menú desplegable del usuario */
+.user-dropdown-menu {
+    background: linear-gradient(135deg, #1a1d23 0%, #2c3e50 100%);
+    border: 1px solid rgba(42, 133, 167, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    padding: 8px 0;
+    min-width: 200px;
+    margin-top: 8px;
+}
+
+.user-dropdown-item {
+    color: #ffffff;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin: 2px 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-dropdown-item:hover {
+    background: linear-gradient(135deg, #2A85A7, #1f5a72);
+    color: #ffffff;
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(42, 133, 167, 0.3);
+}
+
+.dropdown-icon {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.user-dropdown-menu .dropdown-divider {
+    border-color: rgba(42, 133, 167, 0.3);
+    margin: 8px 12px;
 }
 
 /* Focus styles */

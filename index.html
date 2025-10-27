@@ -59,11 +59,23 @@
                         </button>
                     </form>
 
-                    <button id="profileIconBtn" class="btn rounded-circle shadow-sm d-flex align-items-center justify-content-center profile-btn"
-                            aria-expanded="false" aria-controls="profileMenu" title="Perfil">
-                        <img src="images/profile.jpg" alt="Perfil" class="rounded-circle profile-img"
-                             onerror="this.style.display='none'; this.parentNode.insertAdjacentHTML('beforeend','<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;#ffffff&quot;><path d=&quot;M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3z&quot;/><path d=&quot;M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z&quot;/></svg>');">
-                    </button>
+                    <!-- Menú desplegable de usuario -->
+                    <div class="dropdown">
+                        <button id="profileIconBtn" class="btn rounded-circle shadow-sm d-flex align-items-center justify-content-center profile-btn dropdown-toggle"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Perfil">
+                            <img src="images/profile.jpg" alt="Perfil" class="rounded-circle profile-img"
+                                 onerror="this.style.display='none'; this.parentNode.insertAdjacentHTML('beforeend','<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;#ffffff&quot;><path d=&quot;M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3z&quot;/><path d=&quot;M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z&quot;/></svg>');">
+                        </button>
+                        
+                        <ul class="dropdown-menu dropdown-menu-end user-dropdown-menu">
+                            <li><a class="dropdown-item user-dropdown-item" href="#"><i class="dropdown-icon">⚙️</i>Opciones</a></li>
+                            <li><a class="dropdown-item user-dropdown-item" href="#"><i class="dropdown-icon">🔔</i>Notificaciones</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item user-dropdown-item" href="#"><i class="dropdown-icon">❤️</i>Favoritos</a></li>
+                            <li><a class="dropdown-item user-dropdown-item" href="#"><i class="dropdown-icon">📋</i>Listas</a></li>
+                            <li><a class="dropdown-item user-dropdown-item" href="#"><i class="dropdown-icon">📚</i>Historial</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
