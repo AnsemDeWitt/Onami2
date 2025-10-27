@@ -18,10 +18,13 @@ gsap.from("#heroCarousel", {
     delay: 0.3
 });
 
-// Animación títulos de secciones (excepto recomendaciones)
+// Animación títulos de secciones (excepto recomendaciones, novetats y catáleg)
 gsap.utils.toArray("h4").forEach((title, index) => {
     // Saltar el título de recomendaciones ya que tiene su propia animación
     if (title.closest('.recommendations-section')) return;
+    
+    // Saltar títulos de novetats y catáleg para que permanezcan sin animación
+    if (title.closest('#novetats') || title.closest('#cataleg')) return;
     
     gsap.from(title, {
         scrollTrigger: {
