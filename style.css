@@ -1,22 +1,101 @@
-/* Estilo para el fondo del body */
+/* Variables de configuración */
+:root {
+    --text-white: #ffffff;
+    --section-padding: 8%;
+    --recommendations-top-spacing: -50px; /* MUCHO MÁS CERCA del carrusel principal */
+}
+
+/* ====== SEPARADORES DE SECCIÓN (FÁCIL DE REVERTIR) ====== */
+.section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.1) 20%, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        rgba(255, 255, 255, 0.1) 80%, 
+        transparent 100%);
+    margin: 40px 0;
+    opacity: 0.8;
+}
+
+.section-divider-dots {
+    text-align: center;
+    margin: 30px 0;
+    opacity: 0.6;
+}
+
+.section-divider-dots::before {
+    content: "• • •";
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 18px;
+    letter-spacing: 10px;
+}
+
+.section-divider-subtle {
+    width: 60%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 35px auto;
+    opacity: 0.7;
+}
+/* ====== FIN SEPARADORES ====== */
+
+/* Scroll suave para navegación interna */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ajuste para el offset del navbar fijo */
+#cataleg,
+#continua-veient,
+#llistes,
+#contacte {
+    scroll-margin-top: 80px;
+}
+
+/* Estilo general */
 body {
     background-color: #212529;
     color: #fff;
 }
 
-/* Logo del navbar */
+/* Logo navbar */
 .navbar-brand .logo {
-    width: 120px;
+    width: auto;
     height: 40px;
+    max-width: 150px;
+    object-fit: contain;
 }
 
-/* Botón de perfil */
+/* Navbar con z-index alto */
+.navbar {
+    z-index: 999998 !important;
+    position: relative;
+}
+
+/* Botón perfil */
 .profile-btn {
     width: 44px;
     height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    max-width: 44px;
+    max-height: 44px;
     padding: 0;
     background-color: #2A85A7;
     border: 0;
+    border-radius: 50% !important;
+    position: relative;
+    z-index: 99999 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.profile-btn::after {
+    display: none !important; /* Ocultar la flecha de dropdown por defecto */
 }
 
 .profile-img {
@@ -24,9 +103,287 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+    display: block;
 }
 
-/* Carrusel de Recomendaciones */
+/* Navbar responsivo */
+.navbar-toggler {
+    border: none;
+    padding: 6px 8px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler-centered {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 8px;
+}
+
+.profile-btn-mobile {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Posicionamiento responsive del botón de perfil */
+.profile-btn-responsive {
+    margin-left: 1.5rem;
+}
+
+/* Separación específica entre buscador y perfil */
+.search-container {
+    margin-right: 1.5rem;
+}
+
+@media (max-width: 767.98px) {
+    .search-container {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .profile-btn-responsive {
+        position: absolute !important;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 0;
+        z-index: 1001;
+    }
+}
+
+/* Navbar container ajustado */
+.navbar .container {
+    position: relative;
+}
+
+/* Desktop navbar layout */
+@media (min-width: 768px) {
+    .navbar .container {
+        display: flex;
+        align-items: center;
+    }
+    
+    .navbar-collapse {
+        flex: 1;
+    }
+    
+    .profile-btn-responsive {
+        margin-left: auto;
+        order: 3;
+    }
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    transition: transform 0.3s ease;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    transform: rotate(90deg);
+}
+
+/* Animación del menú colapsable */
+.navbar-collapse {
+    transition: all 0.35s ease;
+}
+
+/* Asegurar que el navbar container mantenga la distribución correcta */
+.navbar .container {
+    position: relative;
+}
+
+/* El menú colapsable aparece debajo en móvil sin afectar la posición del botón perfil */
+@media (max-width: 767.98px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #212529;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0 0 0.5rem 0.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        margin-top: 0;
+        padding: 1rem;
+        z-index: 999999 !important;
+    }
+    
+    /* Asegurar que el menú esté por encima de todos los elementos del carrusel */
+    .navbar-collapse.show {
+        z-index: 999999 !important;
+    }
+}
+
+/* Ajustes del menú colapsable en móvil */
+@media (max-width: 767.98px) {
+    /* Estilos específicos para el contenido del menú colapsable */
+    .navbar-nav .nav-link {
+        padding: 0.75rem 0;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .navbar-nav .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 0.5rem;
+        padding-left: 1rem;
+        transition: all 0.3s ease;
+    }
+    
+    /* El buscador en móvil ocupa todo el ancho */
+    .navbar-collapse form {
+        width: 100% !important;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar-collapse .input-group {
+        width: 100%;
+    }
+}
+
+/* Menú desplegable de usuario - EXTERNO para evitar problemas de z-index */
+.user-dropdown-external {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    z-index: 99999 !important;
+    display: none;
+}
+
+.user-dropdown-external .user-dropdown-menu {
+    position: static !important;
+    display: block !important;
+    min-width: 180px;
+    background: linear-gradient(135deg, #1a1d23 0%, #2c3e50 100%);
+    border: 1px solid rgba(42, 133, 167, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    padding: 8px 0;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.user-dropdown-external.show .user-dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.user-dropdown-external .user-dropdown-item {
+    color: #ffffff;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    margin: 2px 8px;
+    display: flex;
+    align-items: center;
+}
+
+/* Iconos del menú desplegable */
+.user-dropdown-item .dropdown-icon {
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.user-dropdown-external .user-dropdown-item:hover {
+    background: linear-gradient(135deg, #2A85A7, #1f5a72);
+    color: #ffffff;
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(42, 133, 167, 0.3);
+}
+
+.user-dropdown-external .dropdown-divider {
+    border-color: rgba(42, 133, 167, 0.3);
+    margin: 8px 12px;
+}
+
+/* Ajustes responsivos para el menú de usuario */
+@media (max-width: 767.98px) {
+    .user-dropdown-external {
+        top: 56px; /* Ajuste para navbar más compacto en móvil */
+        right: 15px;
+    }
+    
+    .user-dropdown-external .user-dropdown-menu {
+        min-width: 160px;
+        font-size: 0.9rem;
+    }
+    
+    .user-dropdown-external .user-dropdown-item {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Focus styles */
+*:focus {
+    outline: 2px solid #2A85A7 !important;
+    outline-offset: 2px !important;
+}
+
+.btn:focus,
+button:focus {
+    outline: 2px solid #2A85A7 !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 0.25rem rgba(42, 133, 167, 0.25) !important;
+}
+
+.nav-link:focus {
+    outline: 2px solid #2A85A7 !important;
+    outline-offset: 2px !important;
+    color: #2A85A7 !important;
+}
+
+input:focus,
+.form-control:focus {
+    border-color: #2A85A7 !important;
+    box-shadow: 0 0 0 0.25rem rgba(42, 133, 167, 0.25) !important;
+}
+
+.recommendation-card:focus {
+    outline: 2px solid #2A85A7 !important;
+    outline-offset: 2px !important;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3), 0 0 0 0.25rem rgba(42, 133, 167, 0.25) !important;
+}
+
+.carousel-control-prev:focus,
+.carousel-control-next:focus {
+    outline: 2px solid #2A85A7 !important;
+    outline-offset: 2px !important;
+}
+
+.carousel-indicators button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Cartas de recomendaciones */
+.recommendations-section {
+    margin-top: -80px !important;
+    position: relative;
+    z-index: 10;
+}
+
 .recommendation-card {
     border: none;
     border-radius: 8px;
@@ -54,10 +411,42 @@ body {
     background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
 }
 
+/* Cambiar color de etiquetas de género en carruseles de gris a blanco */
+.recommendation-card .text-muted,
+#continueWatchingCarousel .text-muted {
+    color: #ffffff !important;
+}
+
+/* Quito focus flechas carrusel */
+.carousel-control-prev:focus,
+.carousel-control-next:focus,
+.carousel-control-prev:focus-visible,
+.carousel-control-next:focus-visible,
+#recommendationsCarousel .carousel-control-prev:focus,
+#recommendationsCarousel .carousel-control-next:focus,
+#continueWatchingCarousel .carousel-control-prev:focus,
+#continueWatchingCarousel .carousel-control-next:focus,
+#recommendationsCarousel .carousel-control-prev:focus-visible,
+#recommendationsCarousel .carousel-control-next:focus-visible,
+#continueWatchingCarousel .carousel-control-prev:focus-visible,
+#continueWatchingCarousel .carousel-control-next:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+#recommendationsCarousel,
+#continueWatchingCarousel {
+    padding: 0 2rem;
+}
+
+/* Controles carrusel recomendaciones */
 #recommendationsCarousel .carousel-control-prev,
-#recommendationsCarousel .carousel-control-next {
-    width: 40px;
-    height: 40px;
+#recommendationsCarousel .carousel-control-next,
+#continueWatchingCarousel .carousel-control-prev,
+#continueWatchingCarousel .carousel-control-next {
+    width: 30px;
+    height: 30px;
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0,0,0,0.6);
@@ -65,21 +454,43 @@ body {
     opacity: 0.8;
 }
 
-#recommendationsCarousel .carousel-control-prev {
-    left: -20px;
+#recommendationsCarousel .carousel-control-prev,
+#continueWatchingCarousel .carousel-control-prev {
+    left: 15px;
 }
 
-#recommendationsCarousel .carousel-control-next {
-    right: -20px;
+#recommendationsCarousel .carousel-control-next,
+#continueWatchingCarousel .carousel-control-next {
+    right: 15px;
 }
 
 #recommendationsCarousel .carousel-control-prev:hover,
-#recommendationsCarousel .carousel-control-next:hover {
+#recommendationsCarousel .carousel-control-next:hover,
+#continueWatchingCarousel .carousel-control-prev:hover,
+#continueWatchingCarousel .carousel-control-next:hover {
     opacity: 1;
     background-color: rgba(0,0,0,0.8);
 }
 
-#recommendationsCarousel .carousel-indicators button {
+#recommendationsCarousel .carousel-control-prev:focus:not(:focus-visible),
+#recommendationsCarousel .carousel-control-next:focus:not(:focus-visible),
+#continueWatchingCarousel .carousel-control-prev:focus:not(:focus-visible),
+#continueWatchingCarousel .carousel-control-next:focus:not(:focus-visible) {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+#recommendationsCarousel .carousel-control-prev:focus-visible,
+#recommendationsCarousel .carousel-control-next:focus-visible,
+#continueWatchingCarousel .carousel-control-prev:focus-visible,
+#continueWatchingCarousel .carousel-control-next:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Indicadores carrusel */
+#recommendationsCarousel .carousel-indicators button,
+#continueWatchingCarousel .carousel-indicators button {
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -87,23 +498,72 @@ body {
     opacity: 0.5;
 }
 
-#recommendationsCarousel .carousel-indicators button.active {
+#recommendationsCarousel .carousel-indicators button.active,
+#continueWatchingCarousel .carousel-indicators button.active {
     opacity: 1;
 }
 
-/* Carrusel Principal - Solo estilos que no se pueden hacer con Bootstrap */
-
-/* Altura del carrusel */
-#heroCarousel {
-    height: 85vh;
+/* Desactivar hover en indicadores del carrusel de recomendaciones */
+#recommendationsCarousel .carousel-indicators button:hover {
+    opacity: 0.5 !important;
 }
 
-/* Altura de imágenes del carrusel */  
+#recommendationsCarousel .carousel-indicators button.active:hover {
+    opacity: 1 !important;
+}
+
+/* Carrusel principal */
+#heroCarousel {
+    height: 85vh;
+    position: relative;
+}
+
+/* Gradientes laterales discretos */
+#heroCarousel::before,
+#heroCarousel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+#heroCarousel::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(33, 37, 41, 0.6), transparent);
+}
+
+#heroCarousel::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(33, 37, 41, 0.6), transparent);
+}
+
 .carousel-img {
     height: 70vh;
     object-fit: cover;
 }
 
+/* Posición imágenes específicas */
+.carousel-item:nth-child(2) .carousel-img {
+    object-position: center top;
+}
+
+.carousel-item:nth-child(3) .carousel-img {
+    object-position: center 20%;
+}
+
+/* Todos los captions del carrusel principal */
+.carousel-caption-custom {
+    bottom: calc(18% - 2px) !important;
+}
+
+.carousel-item:nth-child(3) .carousel-caption {
+    bottom: calc(18% - 2px) !important;
+}
+
+/* Video trailer */
 .carousel-video {
     position: absolute;
     top: 38%;
@@ -115,7 +575,7 @@ body {
     padding: 0.5rem;
 }
 
-/* Indicadores como barritas */
+/* Indicadores como barras */
 .carousel-indicators {
     top: 20px;
     bottom: auto;
@@ -145,7 +605,7 @@ body {
     box-shadow: 0 0 6px rgba(0,0,0,0.12);
 }
 
-/* relleno animado dentro de cada barra */
+/* Relleno animado */
 .carousel-indicators .indicator-fill {
     position: absolute;
     left: 0;
@@ -159,13 +619,13 @@ body {
     transform-origin: left center;
 }
 
-/* Ajuste para pantallas pequeñas */
+/* Responsive para móvil */
 @media (max-width: 576px) {
     .carousel-indicators button { width: 26px; height: 6px; }
     .carousel-indicators .indicator-fill { border-radius: 3px; }
 }
 
-/* --- Navbar: enlaces y botones blancos, hover a #2A85A7 --- */
+/* Navbar */
 .navbar .nav-link,
 .navbar .nav-link:link,
 .navbar .nav-link:visited {
@@ -178,7 +638,6 @@ body {
     color: #2A85A7 !important;
 }
 
-/* Botones dentro de la navbar */
 .navbar .btn,
 .navbar .btn-link {
     color: #ffffff !important;
@@ -189,7 +648,6 @@ body {
     color: #2A85A7 !important;
 }
 
-/* Ajustes visuales del toggler */
 .navbar .navbar-toggler {
     border-color: rgba(255,255,255,0.3);
 }
@@ -198,7 +656,7 @@ body {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* Estilo personalizado para botones primarios con color #2A85A7 */
+/* Botones primarios */
 .btn-primary {
     background-color: #2A85A7 !important;
     border-color: #2A85A7 !important;
@@ -218,7 +676,7 @@ body {
     box-shadow: 0 0 0 0.25rem rgba(42, 133, 167, 0.5) !important;
 }
 
-/* Estilos para la sección de series */
+/* Sección series */
 .series-section {
     padding: 8%;
 }
@@ -236,6 +694,452 @@ body {
     padding: var(--section-padding);
 }
 
+/* Tarjetas de listas personalizadas */
+.list-card {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    border: 2px solid #4a5568;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.list-card:hover {
+    border-color: #2A85A7;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(42, 133, 167, 0.3);
+}
+
+.list-card:focus {
+    outline: 2px solid #2A85A7 !important;
+    outline-offset: 2px !important;
+    border-color: #2A85A7;
+}
+
+.list-card-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.list-card-content {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.list-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.list-card-count {
+    font-size: 0.9rem;
+    color: #b3b3b3;
+    margin: 0;
+}
+
 .series-data-table {
     color: var(--text-white);
+}
+
+/* Botón Veure més */
+.veure-mes-btn {
+    background: transparent;
+    border: 2px solid #2A85A7;
+    color: #2A85A7;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.veure-mes-btn:hover {
+    background: linear-gradient(135deg, #2A85A7, #1f5a72);
+    border-color: #2A85A7;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(42, 133, 167, 0.3);
+}
+
+.veure-mes-btn:focus {
+    box-shadow: 0 0 0 0.25rem rgba(42, 133, 167, 0.25);
+}
+
+/* Footer moderno */
+.modern-footer {
+    background: linear-gradient(135deg, #1a1d23 0%, #2c3e50 100%);
+    color: #ffffff;
+    margin-top: 60px;
+}
+
+.footer-main {
+    padding: 50px 0 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-title {
+    color: #2A85A7;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-link {
+    color: #b3b3b3;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.footer-link:hover {
+    color: #2A85A7;
+    transform: translateX(5px);
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #2A85A7;
+    transition: width 0.3s ease;
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: rgba(42, 133, 167, 0.1);
+    border: 2px solid rgba(42, 133, 167, 0.3);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    background: #2A85A7;
+    border-color: #2A85A7;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(42, 133, 167, 0.4);
+}
+
+.social-btn img {
+    transition: transform 0.3s ease;
+}
+
+.social-btn:hover img {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px 0;
+}
+
+.copyright-text {
+    margin: 0;
+    color: #b3b3b3;
+    font-size: 0.9rem;
+}
+
+.footer-brand {
+    margin: 0;
+    color: #2A85A7;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .social-media {
+        justify-content: center;
+    }
+    
+    .footer-main {
+        text-align: center;
+    }
+    
+    .footer-bottom .row > div {
+        text-align: center !important;
+        margin-bottom: 10px;
+    }
+}
+
+/* Sección Catáleg */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0 15px;
+}
+
+.catalog-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.catalog-item:hover {
+    transform: translateY(-5px);
+}
+
+.catalog-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.catalog-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.catalog-item:hover .catalog-overlay {
+    opacity: 1;
+}
+
+.catalog-content {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    max-width: 90%;
+}
+
+.catalog-content h5 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.catalog-content p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.catalog-category {
+    display: inline-block;
+    background: linear-gradient(135deg, #2A85A7, #1f5a72);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive para el catálogo */
+@media (max-width: 768px) {
+    .catalog-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+    
+    .catalog-content h5 {
+        font-size: 1.2rem;
+    }
+    
+    .catalog-content p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ====== ICONOS SOCIALES FOOTER ====== */
+.social-btn {
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.social-btn svg {
+    transition: all 0.3s ease;
+}
+
+/* Hover effects para iconos específicos */
+.social-btn:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Facebook */
+.social-btn:hover:nth-child(1) {
+    background: #1877f2;
+    border-color: #1877f2;
+}
+
+/* X (Twitter) */
+.social-btn:hover:nth-child(2) {
+    background: #000000;
+    border-color: #000000;
+}
+
+/* TikTok */
+.social-btn:hover:nth-child(3) {
+    background: linear-gradient(135deg, #ff0050, #00f2ea);
+    border-color: #ff0050;
+}
+
+/* Instagram */
+.social-btn:hover:nth-child(4) {
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    border-color: #833ab4;
+}
+
+/* YouTube */
+.social-btn:hover:nth-child(5) {
+    background: #ff0000;
+    border-color: #ff0000;
+}
+
+/* Animación de hover más suave */
+.social-btn:hover svg {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.social-btn:active {
+    transform: translateY(-2px);
+}
+
+/* Responsive para iconos sociales */
+@media (max-width: 768px) {
+    .social-media {
+        justify-content: center;
+        margin-top: 20px;
+    }
+    
+    .social-btn {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-btn {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* ====== SECCIÓN KIMETSU ANUNCIO ====== */
+.kimetsu-section {
+    padding: 60px 0;
+    overflow: hidden;
+}
+
+.kimetsu-container {
+    text-align: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kimetsu-image {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    border-radius: 0;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    display: block;
+}
+
+/* Responsive para la imagen Kimetsu */
+@media (max-width: 1200px) {
+    .kimetsu-image {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    .kimetsu-section {
+        padding: 40px 0;
+    }
+    
+    .kimetsu-container {
+        padding: 0 15px;
+    }
+    
+    .kimetsu-image {
+        max-width: 98%;
+    }
+}
+
+@media (max-width: 480px) {
+    .kimetsu-section {
+        padding: 30px 0;
+    }
+    
+    .kimetsu-container {
+        padding: 0 10px;
+    }
+    
+    .kimetsu-image {
+        max-width: 100%;
+    }
 }
