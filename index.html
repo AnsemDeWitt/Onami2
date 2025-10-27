@@ -22,20 +22,20 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-        <div class="container d-flex align-items-center">
+        <div class="container">
             <!-- Logo a la izquierda -->
-            <a class="navbar-brand me-auto" href="#">
+            <a class="navbar-brand" href="#">
                 <img src="images/logo1.png" class="img-fluid logo" alt="Logo">
             </a>
 
             <!-- Botón hamburguesa centrado (solo visible en móvil) -->
-            <button class="navbar-toggler mx-auto d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" 
+            <button class="navbar-toggler d-md-none navbar-toggler-centered" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" 
                     aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Botón de perfil - siempre visible a la derecha -->
-            <button id="profileIconBtn" class="btn rounded-circle shadow-sm d-flex align-items-center justify-content-center profile-btn ms-auto"
+            <!-- Botón de perfil - visible en móvil a la derecha -->
+            <button id="profileIconBtn" class="btn rounded-circle shadow-sm d-flex align-items-center justify-content-center profile-btn d-md-none profile-btn-mobile"
                     type="button" title="Perfil">
                 <img src="images/profile.jpg" alt="Perfil" class="rounded-circle profile-img"
                      onerror="this.style.display='none'; this.parentNode.insertAdjacentHTML('beforeend','<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;#ffffff&quot;><path d=&quot;M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3z&quot;/><path d=&quot;M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z&quot;/></svg>');">
@@ -74,6 +74,13 @@
                             </svg>
                         </button>
                     </form>
+                    
+                    <!-- Botón de perfil para desktop -->
+                    <button id="profileIconBtnDesktop" class="btn rounded-circle shadow-sm d-none d-md-flex align-items-center justify-content-center profile-btn ms-2"
+                            type="button" title="Perfil">
+                        <img src="images/profile.jpg" alt="Perfil" class="rounded-circle profile-img"
+                             onerror="this.style.display='none'; this.parentNode.insertAdjacentHTML('beforeend','<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;#ffffff&quot;><path d=&quot;M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3z&quot;/><path d=&quot;M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z&quot;/></svg>');">
+                    </button>
                 </div>
             </div>
         </div>
@@ -841,11 +848,12 @@
     <!-- Control del menú desplegable externo -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const profileBtn = document.getElementById('profileIconBtn');
+        const profileBtnMobile = document.getElementById('profileIconBtn');
+        const profileBtnDesktop = document.getElementById('profileIconBtnDesktop');
         const userDropdown = document.getElementById('userDropdown');
         
-        // Toggle del menú
-        profileBtn.addEventListener('click', function(e) {
+        // Función para togglear el menú
+        function toggleUserMenu(e) {
             e.preventDefault();
             e.stopPropagation();
             
@@ -860,11 +868,22 @@
                     userDropdown.style.display = 'none';
                 }, 300);
             }
-        });
+        }
+        
+        // Añadir event listeners a ambos botones
+        if (profileBtnMobile) {
+            profileBtnMobile.addEventListener('click', toggleUserMenu);
+        }
+        if (profileBtnDesktop) {
+            profileBtnDesktop.addEventListener('click', toggleUserMenu);
+        }
         
         // Cerrar al hacer click fuera
         document.addEventListener('click', function(e) {
-            if (!profileBtn.contains(e.target) && !userDropdown.contains(e.target)) {
+            const isProfileButton = (profileBtnMobile && profileBtnMobile.contains(e.target)) || 
+                                  (profileBtnDesktop && profileBtnDesktop.contains(e.target));
+            
+            if (!isProfileButton && !userDropdown.contains(e.target)) {
                 userDropdown.classList.remove('show');
                 setTimeout(() => {
                     userDropdown.style.display = 'none';

@@ -51,10 +51,37 @@ body {
     padding: 4px 8px;
     font-size: 1.1rem;
     transition: all 0.3s ease;
+}
+
+.navbar-toggler-centered {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
+}
+
+.profile-btn-mobile {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Navbar container ajustado */
+.navbar .container {
+    position: relative;
+}
+
+/* Desktop navbar layout */
+@media (min-width: 768px) {
+    .navbar .container {
+        display: flex;
+        align-items: center;
+    }
+    
+    .navbar-collapse {
+        flex: 1;
+    }
 }
 
 .navbar-toggler:focus {
