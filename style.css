@@ -25,6 +25,7 @@ body {
     background-color: #2A85A7;
     border: 0;
     position: relative;
+    z-index: 10001;
 }
 
 .profile-btn::after {
@@ -38,6 +39,12 @@ body {
     border-radius: 50%;
 }
 
+/* Contenedor dropdown */
+.dropdown {
+    position: relative;
+    z-index: 10001;
+}
+
 /* Menú desplegable del usuario */
 .user-dropdown-menu {
     background: linear-gradient(135deg, #1a1d23 0%, #2c3e50 100%);
@@ -47,6 +54,8 @@ body {
     padding: 8px 0;
     min-width: 200px;
     margin-top: 8px;
+    z-index: 10000 !important;
+    position: relative;
 }
 
 .user-dropdown-item {
