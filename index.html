@@ -34,13 +34,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Botón de perfil - visible en móvil a la derecha -->
-            <button id="profileIconBtn" class="btn rounded-circle shadow-sm d-flex align-items-center justify-content-center profile-btn d-md-none profile-btn-mobile"
-                    type="button" title="Perfil">
-                <img src="images/profile.jpg" alt="Perfil" class="rounded-circle profile-img"
-                     onerror="this.style.display='none'; this.parentNode.insertAdjacentHTML('beforeend','<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;#ffffff&quot;><path d=&quot;M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3z&quot;/><path d=&quot;M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z&quot;/></svg>');">
-            </button>
-
             <!-- Menú colapsable -->
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ms-md-4 gap-md-3 me-auto">
@@ -74,15 +67,15 @@
                             </svg>
                         </button>
                     </form>
-                    
-                    <!-- Botón de perfil para desktop -->
-                    <button id="profileIconBtnDesktop" class="btn rounded-circle shadow-sm d-none d-md-flex align-items-center justify-content-center profile-btn ms-2"
-                            type="button" title="Perfil">
-                        <img src="images/profile.jpg" alt="Perfil" class="rounded-circle profile-img"
-                             onerror="this.style.display='none'; this.parentNode.insertAdjacentHTML('beforeend','<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;#ffffff&quot;><path d=&quot;M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3z&quot;/><path d=&quot;M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z&quot;/></svg>');">
-                    </button>
                 </div>
             </div>
+
+            <!-- Botón de perfil - siempre visible fuera del menú colapsable -->
+            <button id="profileIconBtn" class="btn rounded-circle shadow-sm d-flex align-items-center justify-content-center profile-btn profile-btn-responsive"
+                    type="button" title="Perfil">
+                <img src="images/profile.jpg" alt="Perfil" class="rounded-circle profile-img"
+                     onerror="this.style.display='none'; this.parentNode.insertAdjacentHTML('beforeend','<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;#ffffff&quot;><path d=&quot;M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3z&quot;/><path d=&quot;M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z&quot;/></svg>');">
+            </button>
         </div>
     </nav>
 
@@ -711,8 +704,7 @@
     <!-- Control del menú desplegable externo -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const profileBtnMobile = document.getElementById('profileIconBtn');
-        const profileBtnDesktop = document.getElementById('profileIconBtnDesktop');
+        const profileBtn = document.getElementById('profileIconBtn');
         const userDropdown = document.getElementById('userDropdown');
         
         // Función para togglear el menú
@@ -733,20 +725,14 @@
             }
         }
         
-        // Añadir event listeners a ambos botones
-        if (profileBtnMobile) {
-            profileBtnMobile.addEventListener('click', toggleUserMenu);
-        }
-        if (profileBtnDesktop) {
-            profileBtnDesktop.addEventListener('click', toggleUserMenu);
+        // Añadir event listener al botón
+        if (profileBtn) {
+            profileBtn.addEventListener('click', toggleUserMenu);
         }
         
         // Cerrar al hacer click fuera
         document.addEventListener('click', function(e) {
-            const isProfileButton = (profileBtnMobile && profileBtnMobile.contains(e.target)) || 
-                                  (profileBtnDesktop && profileBtnDesktop.contains(e.target));
-            
-            if (!isProfileButton && !userDropdown.contains(e.target)) {
+            if (!profileBtn.contains(e.target) && !userDropdown.contains(e.target)) {
                 userDropdown.classList.remove('show');
                 setTimeout(() => {
                     userDropdown.style.display = 'none';

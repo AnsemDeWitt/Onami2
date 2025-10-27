@@ -58,7 +58,7 @@ body {
 /* Navbar responsivo */
 .navbar-toggler {
     border: none;
-    padding: 4px 8px;
+    padding: 6px 8px;
     font-size: 1.1rem;
     transition: all 0.3s ease;
 }
@@ -68,6 +68,9 @@ body {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 8px;
 }
 
 .profile-btn-mobile {
@@ -75,6 +78,22 @@ body {
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
+}
+
+/* Posicionamiento responsive del botón de perfil */
+.profile-btn-responsive {
+    margin-left: 0.5rem;
+}
+
+@media (max-width: 767.98px) {
+    .profile-btn-responsive {
+        position: absolute !important;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 0;
+        z-index: 1001;
+    }
 }
 
 /* Navbar container ajustado */
@@ -91,6 +110,11 @@ body {
     
     .navbar-collapse {
         flex: 1;
+    }
+    
+    .profile-btn-responsive {
+        margin-left: auto;
+        order: 3;
     }
 }
 
