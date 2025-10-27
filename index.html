@@ -209,12 +209,11 @@
                     <!-- Carrusel recomendaciones -->
                     <div id="recommendationsCarousel" class="carousel slide mb-4" data-bs-ride="false">
                         <div class="carousel-inner">
-                            <!-- Slide 1 - Chainsaw Man -->
+                            <!-- Slide 1 -->
                             <div class="carousel-item active">
                                 <div class="row g-3">
-                                    <!-- En desktop: 4 columnas, en móvil: 1 columna centrada -->
-                                    <div class="col-12 col-md-6 col-lg-3 d-flex justify-content-center">
-                                        <div class="card bg-dark text-white h-100 recommendation-card mobile-single-card" tabindex="0">
+                                    <div class="col-12 col-md-6 col-lg-3">
+                                        <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
                                             <img src="images/chainsaw.jpeg" class="card-img-top recommendation-img" alt="Chainsaw Man">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
                                                 <h6 class="card-title mb-1">Chainsaw Man</h6>
@@ -225,8 +224,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Desktop: mostrar más cartas en la misma fila -->
-                                    <div class="col-6 col-md-6 col-lg-3 d-none d-md-block">
+                                    <div class="col-12 col-md-6 col-lg-3">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
                                             <img src="" class="card-img-top recommendation-img" alt="Attack on Titan">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
@@ -238,7 +236,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 d-none d-lg-block">
+                                    <div class="col-12 col-md-6 col-lg-3">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
                                             <img src="" class="card-img-top recommendation-img" alt="My Hero Academia">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
@@ -250,7 +248,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 d-none d-lg-block">
+                                    <div class="col-12 col-md-6 col-lg-3">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
                                             <img src="" class="card-img-top recommendation-img" alt="Demon Slayer">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
@@ -265,64 +263,10 @@
                                 </div>
                             </div>
                             
-                            <!-- Slide 2 - Attack on Titan (solo visible en móvil) -->
-                            <div class="carousel-item d-md-none">
+                            <!-- Slide 2 -->
+                            <div class="carousel-item">
                                 <div class="row g-3">
-                                    <div class="col-12 d-flex justify-content-center">
-                                        <div class="card bg-dark text-white h-100 recommendation-card mobile-single-card" tabindex="0">
-                                            <img src="" class="card-img-top recommendation-img" alt="Attack on Titan">
-                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
-                                                <h6 class="card-title mb-1">Attack on Titan</h6>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <small class="text-muted">Thriller</small>
-                                                    <button class="btn btn-sm btn-primary">▶</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Slide 3 - My Hero Academia (solo visible en móvil) -->
-                            <div class="carousel-item d-md-none">
-                                <div class="row g-3">
-                                    <div class="col-12 d-flex justify-content-center">
-                                        <div class="card bg-dark text-white h-100 recommendation-card mobile-single-card" tabindex="0">
-                                            <img src="" class="card-img-top recommendation-img" alt="My Hero Academia">
-                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
-                                                <h6 class="card-title mb-1">My Hero Academia</h6>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <small class="text-muted">Acció</small>
-                                                    <button class="btn btn-sm btn-primary">▶</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Slide 4 - Demon Slayer (solo visible en móvil) -->
-                            <div class="carousel-item d-md-none">
-                                <div class="row g-3">
-                                    <div class="col-12 d-flex justify-content-center">
-                                        <div class="card bg-dark text-white h-100 recommendation-card mobile-single-card" tabindex="0">
-                                            <img src="" class="card-img-top recommendation-img" alt="Demon Slayer">
-                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
-                                                <h6 class="card-title mb-1">Demon Slayer</h6>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <small class="text-muted">Acció</small>
-                                                    <button class="btn btn-sm btn-primary">▶</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Slide 5 - One Piece -->
-                            <div class="carousel-item d-none d-md-block">
-                                <div class="row g-3">
-                                    <div class="col-6 col-md-6 col-lg-3">
+                                    <div class="col-12 col-md-6 col-lg-3">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
                                             <img src="" class="card-img-top recommendation-img" alt="One Piece">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
@@ -334,7 +278,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3">
+                                    <div class="col-12 col-md-6 col-lg-3">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
                                             <img src="" class="card-img-top recommendation-img" alt="Naruto">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
@@ -346,7 +290,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 d-none d-lg-block">
+                                    <div class="col-12 col-md-6 col-lg-3">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
                                             <img src="" class="card-img-top recommendation-img" alt="Death Note">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
@@ -358,77 +302,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-6 col-lg-3 d-none d-lg-block">
+                                    <div class="col-12 col-md-6 col-lg-3">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
-                                            <img src="" class="card-img-top recommendation-img" alt="Tokyo Ghoul">
-                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
-                                                <h6 class="card-title mb-1">Tokyo Ghoul</h6>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <small class="text-muted">Horror</small>
-                                                    <button class="btn btn-sm btn-primary">▶</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Slides adicionales para móvil (One Piece, Naruto, Death Note, Tokyo Ghoul) -->
-                            <div class="carousel-item d-md-none">
-                                <div class="row g-3">
-                                    <div class="col-12 d-flex justify-content-center">
-                                        <div class="card bg-dark text-white h-100 recommendation-card mobile-single-card" tabindex="0">
-                                            <img src="" class="card-img-top recommendation-img" alt="One Piece">
-                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
-                                                <h6 class="card-title mb-1">One Piece</h6>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <small class="text-muted">Aventura</small>
-                                                    <button class="btn btn-sm btn-primary">▶</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="carousel-item d-md-none">
-                                <div class="row g-3">
-                                    <div class="col-12 d-flex justify-content-center">
-                                        <div class="card bg-dark text-white h-100 recommendation-card mobile-single-card" tabindex="0">
-                                            <img src="" class="card-img-top recommendation-img" alt="Naruto">
-                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
-                                                <h6 class="card-title mb-1">Naruto</h6>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <small class="text-muted">Acció</small>
-                                                    <button class="btn btn-sm btn-primary">▶</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="carousel-item d-md-none">
-                                <div class="row g-3">
-                                    <div class="col-12 d-flex justify-content-center">
-                                        <div class="card bg-dark text-white h-100 recommendation-card mobile-single-card" tabindex="0">
-                                            <img src="" class="card-img-top recommendation-img" alt="Death Note">
-                                            <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
-                                                <h6 class="card-title mb-1">Death Note</h6>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <small class="text-muted">Thriller</small>
-                                                    <button class="btn btn-sm btn-primary">▶</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="carousel-item d-md-none">
-                                <div class="row g-3">
-                                    <div class="col-12 d-flex justify-content-center">
-                                        <div class="card bg-dark text-white h-100 recommendation-card mobile-single-card" tabindex="0">
                                             <img src="" class="card-img-top recommendation-img" alt="Tokyo Ghoul">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
                                                 <h6 class="card-title mb-1">Tokyo Ghoul</h6>
