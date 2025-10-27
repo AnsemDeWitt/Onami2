@@ -100,6 +100,17 @@ body {
     margin-left: 1.5rem;
 }
 
+/* Separación específica entre buscador y perfil */
+.search-container {
+    margin-right: 1.5rem;
+}
+
+@media (max-width: 767.98px) {
+    .search-container {
+        margin-right: 0;
+    }
+}
+
 @media (max-width: 767.98px) {
     .profile-btn-responsive {
         position: absolute !important;
