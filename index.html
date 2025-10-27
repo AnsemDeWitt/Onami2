@@ -59,23 +59,12 @@
                         </button>
                     </form>
 
-                    <!-- Menú desplegable de usuario -->
-                    <div class="dropdown">
-                        <button id="profileIconBtn" class="btn rounded-circle shadow-sm d-flex align-items-center justify-content-center profile-btn dropdown-toggle"
-                                type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Perfil">
-                            <img src="images/profile.jpg" alt="Perfil" class="rounded-circle profile-img"
-                                 onerror="this.style.display='none'; this.parentNode.insertAdjacentHTML('beforeend','<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;#ffffff&quot;><path d=&quot;M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3z&quot;/><path d=&quot;M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z&quot;/></svg>');">
-                        </button>
-                        
-                        <ul class="dropdown-menu dropdown-menu-end user-dropdown-menu">
-                            <li><a class="dropdown-item user-dropdown-item" href="#">Opciones</a></li>
-                            <li><a class="dropdown-item user-dropdown-item" href="#">Notificaciones</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item user-dropdown-item" href="#">Favoritos</a></li>
-                            <li><a class="dropdown-item user-dropdown-item" href="#">Listas</a></li>
-                            <li><a class="dropdown-item user-dropdown-item" href="#">Historial</a></li>
-                        </ul>
-                    </div>
+                    <!-- Solo el botón, sin el menú -->
+                    <button id="profileIconBtn" class="btn rounded-circle shadow-sm d-flex align-items-center justify-content-center profile-btn"
+                            type="button" title="Perfil">
+                        <img src="images/profile.jpg" alt="Perfil" class="rounded-circle profile-img"
+                             onerror="this.style.display='none'; this.parentNode.insertAdjacentHTML('beforeend','<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;#ffffff&quot;><path d=&quot;M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3z&quot;/><path d=&quot;M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z&quot;/></svg>');">
+                    </button>
                 </div>
             </div>
         </div>
@@ -702,6 +691,64 @@
 
     })();
     </script>
+
+    <!-- Control del menú desplegable externo -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const profileBtn = document.getElementById('profileIconBtn');
+        const userDropdown = document.getElementById('userDropdown');
+        
+        // Toggle del menú
+        profileBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            if (userDropdown.style.display === 'none' || userDropdown.style.display === '') {
+                userDropdown.style.display = 'block';
+                setTimeout(() => {
+                    userDropdown.classList.add('show');
+                }, 10);
+            } else {
+                userDropdown.classList.remove('show');
+                setTimeout(() => {
+                    userDropdown.style.display = 'none';
+                }, 300);
+            }
+        });
+        
+        // Cerrar al hacer click fuera
+        document.addEventListener('click', function(e) {
+            if (!profileBtn.contains(e.target) && !userDropdown.contains(e.target)) {
+                userDropdown.classList.remove('show');
+                setTimeout(() => {
+                    userDropdown.style.display = 'none';
+                }, 300);
+            }
+        });
+        
+        // Cerrar con Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                userDropdown.classList.remove('show');
+                setTimeout(() => {
+                    userDropdown.style.display = 'none';
+                }, 300);
+            }
+        });
+    });
+    </script>
+
+    <!-- Menú desplegable de usuario (fuera del navbar para evitar problemas de z-index) -->
+    <div id="userDropdown" class="user-dropdown-external">
+        <ul class="dropdown-menu show user-dropdown-menu">
+            <li><a class="dropdown-item user-dropdown-item" href="#">Opciones</a></li>
+            <li><a class="dropdown-item user-dropdown-item" href="#">Notificaciones</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item user-dropdown-item" href="#">Favoritos</a></li>
+            <li><a class="dropdown-item user-dropdown-item" href="#">Listas</a></li>
+            <li><a class="dropdown-item user-dropdown-item" href="#">Historial</a></li>
+        </ul>
+    </div>
     
     <!-- Animaciones GSAP -->
     <script src="./animations.js"></script>
