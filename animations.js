@@ -79,16 +79,16 @@ gsap.utils.toArray(".list-card").forEach((card, index) => {
     });
 });
 
-// Animación tabla de series
-gsap.from(".series-table", {
+// Animación imagen Kimetsu (desde la derecha)
+gsap.from(".kimetsu-image", {
     scrollTrigger: {
-        trigger: ".series-table",
+        trigger: ".kimetsu-image",
         start: "top 80%",
         end: "bottom 20%",
         toggleActions: "play none none reverse"
     },
-    duration: 1,
-    y: 50,
+    duration: 1.2,
+    x: "100%",
     opacity: 0,
     ease: "power2.out"
 });

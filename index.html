@@ -1,33 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRÁCTICA 1</title>
     
-    <!-- Favicon completo para todos los dispositivos -->
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <link rel="shortcut icon" href="images/favicon.ico">
     <link rel="manifest" href="images/site.webmanifest">
     <meta name="msapplication-TileColor" content="#212529">
-    <meta name="msapplication-config" content="images/browserconfig.xml">
-    
-    <!-- Fallback adicional para máxima compatibilidad -->
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    
+
     <!-- Bootstrap CSS & JS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
+
     <!-- Mis estilos -->
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./gsap-optimizations.css">
 </head>
 
 <body>
@@ -40,8 +35,9 @@
             </a>
 
             <!-- Botón hamburguesa centrado (solo visible en móvil) -->
-            <button class="navbar-toggler d-md-none navbar-toggler-centered" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" 
-                    aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler d-md-none navbar-toggler-centered" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -66,21 +62,24 @@
                 </ul>
 
                 <!-- Buscador - aparece en el menú hamburguesa en móvil -->
-                <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-2 mt-3 mt-md-0 search-container">
+                <div
+                    class="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-2 mt-3 mt-md-0 search-container">
                     <form class="d-flex align-items-center m-0 w-100" role="search" onsubmit="event.preventDefault();">
                         <div class="input-group input-group-sm">
-                            <input id="navSearchInput" type="search" class="form-control rounded-pill bg-light border-0 ps-3"
-                                   placeholder="Buscar..." aria-label="Buscar">
+                            <input id="navSearchInput" type="search"
+                                class="form-control rounded-pill bg-light border-0 ps-3" placeholder="Buscar..."
+                                aria-label="Buscar">
                         </div>
                     </form>
                 </div>
             </div>
 
             <!-- Botón de perfil - siempre visible fuera del menú colapsable -->
-            <button id="profileIconBtn" class="btn rounded-circle shadow-sm d-flex align-items-center justify-content-center profile-btn profile-btn-responsive"
-                    type="button" title="Perfil">
+            <button id="profileIconBtn"
+                class="btn rounded-circle shadow-sm d-flex align-items-center justify-content-center profile-btn profile-btn-responsive"
+                type="button" title="Perfil">
                 <img src="images/profile.jpg" alt="Perfil" class="rounded-circle profile-img"
-                     onerror="this.style.display='none'; this.parentNode.insertAdjacentHTML('beforeend','<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;#ffffff&quot;><path d=&quot;M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3z&quot;/><path d=&quot;M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z&quot;/></svg>');">
+                    onerror="this.style.display='none'; this.parentNode.insertAdjacentHTML('beforeend','<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;#ffffff&quot;><path d=&quot;M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3z&quot;/><path d=&quot;M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z&quot;/></svg>');">
             </button>
         </div>
     </nav>
@@ -89,14 +88,14 @@
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="8000" data-bs-pause="hover">
         <!-- Indicadores -->
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"><span class="indicator-fill"></span></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"
-                aria-label="Slide 2"><span class="indicator-fill"></span></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"
-                aria-label="Slide 3"><span class="indicator-fill"></span></button>
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3"
-                aria-label="Slide 4"><span class="indicator-fill"></span></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"><span class="indicator-fill"></span></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"><span
+                    class="indicator-fill"></span></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"><span
+                    class="indicator-fill"></span></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Slide 4"><span
+                    class="indicator-fill"></span></button>
         </div>
 
         <div class="carousel-inner h-100">
@@ -108,23 +107,27 @@
                 <!-- Video trailer -->
                 <div class="carousel-video d-none d-md-block position-absolute start-0">
                     <div class="ratio ratio-16x9 h-100">
-                        <iframe src="https://www.youtube.com/embed/pv8A7eubPQQ?start=1&rel=0"
-                            title="YouTube video" frameborder="0"
+                        <iframe src="https://www.youtube.com/embed/pv8A7eubPQQ?start=1&rel=0" title="YouTube video"
+                            frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowfullscreen></iframe>
                     </div>
                 </div>
 
                 <!-- Caption -->
-                <div class="carousel-caption carousel-caption-custom position-absolute start-0 end-0 bg-black bg-opacity-25 px-0 py-3 w-100">
+                <div
+                    class="carousel-caption carousel-caption-custom position-absolute start-0 end-0 bg-black bg-opacity-25 px-0 py-3 w-100">
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-12 col-md-8 col-lg-9 text-start text-md-start mb-3 mb-md-0">
-                                <h2 class="mb-1 fw-bold fs-4 text-white">Chainsaw Man - La pel·lícula: L'arc de Reze</h2>
-                                <p class="mb-0 fs-6 text-white">El dimoni de la motoserra arriba amb més acció, sang i bogeria!</p>
+                                <h2 class="mb-1 fw-bold fs-4 text-white">Chainsaw Man - La pel·lícula: L'arc de Reze
+                                </h2>
+                                <p class="mb-0 fs-6 text-white">El dimoni de la motoserra arriba amb més acció, sang i
+                                    bogeria!</p>
                             </div>
                             <div class="col-12 col-md-4 col-lg-3 d-flex justify-content-center justify-content-md-end">
-                                <a href="https://www.youtube.com/watch?v=pv8A7eubPQQ" target="_blank" rel="noopener" class="btn btn-primary btn-sm w-100 w-md-auto" role="button">MIRA EL TRAILER</a>
+                                <a href="https://www.youtube.com/watch?v=pv8A7eubPQQ" target="_blank" rel="noopener"
+                                    class="btn btn-primary btn-sm w-100 w-md-auto" role="button">MIRA EL TRAILER</a>
                             </div>
                         </div>
                     </div>
@@ -134,16 +137,20 @@
             <!-- Slide 2: Chainsaw Man serie -->
             <div class="carousel-item h-100">
                 <img src="images/chainsaw.jpeg" class="d-block w-100 carousel-img" alt="Slide 2">
-                <div class="carousel-caption carousel-caption-custom position-absolute start-0 end-0 bg-black bg-opacity-25 px-0 py-3 w-100">
+                <div
+                    class="carousel-caption carousel-caption-custom position-absolute start-0 end-0 bg-black bg-opacity-25 px-0 py-3 w-100">
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-12 col-md-8 col-lg-9 text-start text-md-start mb-3 mb-md-0">
                                 <h2 class="mb-1 fw-bold fs-4 text-white">Chainsaw Man</h2>
-                                <p class="mb-0 fs-6 text-white">Denji es un adolescent que viu amb Pochita, un dimoni motoserra.</p>
-                                <p class="mb-0 fs-6 text-white d-none d-sm-block">Sempre ha tingut una vida miserable, pero aviat, tot canviarà.</p>
+                                <p class="mb-0 fs-6 text-white">Denji es un adolescent que viu amb Pochita, un dimoni
+                                    motoserra.</p>
+                                <p class="mb-0 fs-6 text-white d-none d-sm-block">Sempre ha tingut una vida miserable,
+                                    pero aviat, tot canviarà.</p>
                             </div>
                             <div class="col-12 col-md-4 col-lg-3 d-flex justify-content-center justify-content-md-end">
-                                <a href="#" class="btn btn-primary btn-sm w-100 w-md-auto" role="button">Començar a veure EP1</a>
+                                <a href="#" class="btn btn-primary btn-sm w-100 w-md-auto" role="button">Començar a
+                                    veure EP1</a>
                             </div>
                         </div>
                     </div>
@@ -153,7 +160,8 @@
             <!-- Slide 3: Dr. House -->
             <div class="carousel-item h-100">
                 <img src="images/house.jpg" class="d-block w-100 carousel-img" alt="Slide 3">
-                <div class="carousel-caption carousel-caption-custom position-absolute start-0 end-0 bg-black bg-opacity-25 px-0 py-3 w-100">
+                <div
+                    class="carousel-caption carousel-caption-custom position-absolute start-0 end-0 bg-black bg-opacity-25 px-0 py-3 w-100">
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-12 col-md-8 col-lg-9 text-start text-md-start mb-3 mb-md-0">
@@ -161,7 +169,8 @@
                                 <p class="mb-0 fs-6 text-white">El pitllor metge del món.</p>
                             </div>
                             <div class="col-12 col-md-4 col-lg-3 d-flex justify-content-center justify-content-md-end">
-                                <a href="#" class="btn btn-primary btn-sm w-100 w-md-auto" role="button">Començar a veure EP1</a>
+                                <a href="#" class="btn btn-primary btn-sm w-100 w-md-auto" role="button">Començar a
+                                    veure EP1</a>
                             </div>
                         </div>
                     </div>
@@ -171,15 +180,18 @@
             <!-- Slide 4 -->
             <div class="carousel-item h-100">
                 <img src="images/tlou.jpg" class="d-block w-100 carousel-img" alt="Slide 4">
-                <div class="carousel-caption carousel-caption-custom position-absolute start-0 end-0 bg-black bg-opacity-25 px-0 py-3 w-100">
+                <div
+                    class="carousel-caption carousel-caption-custom position-absolute start-0 end-0 bg-black bg-opacity-25 px-0 py-3 w-100">
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-12 col-md-8 col-lg-9 text-start text-md-start mb-3 mb-md-0">
                                 <h2 class="mb-1 fw-bold fs-4 text-white">The Last of Us</h2>
-                                <p class="mb-0 fs-6 text-white">La història d'una pandèmia i la lluita per la supervivència.</p>
+                                <p class="mb-0 fs-6 text-white">La història d'una pandèmia i la lluita per la
+                                    supervivència.</p>
                             </div>
                             <div class="col-12 col-md-4 col-lg-3 d-flex justify-content-center justify-content-md-end">
-                                <a href="#" class="btn btn-primary btn-sm w-100 w-md-auto" role="button">Començar a veure EP1</a>
+                                <a href="#" class="btn btn-primary btn-sm w-100 w-md-auto" role="button">Començar a
+                                    veure EP1</a>
                             </div>
                         </div>
                     </div>
@@ -204,7 +216,7 @@
             <div class="row">
                 <div class="col-12">
                     <h4 class="px-3">Les nostres recomanacions</h4>
-                    
+
                     <!-- Carrusel recomendaciones -->
                     <div id="recommendationsCarousel" class="carousel slide mb-4" data-bs-ride="false">
                         <div class="carousel-inner">
@@ -213,7 +225,8 @@
                                 <div class="row g-3">
                                     <div class="col-12 col-md-6 col-lg-3">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
-                                            <img src="images/chainsaw.jpeg" class="card-img-top recommendation-img" alt="Chainsaw Man">
+                                            <img src="images/chainsaw.jpeg" class="card-img-top recommendation-img"
+                                                alt="Chainsaw Man">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
                                                 <h6 class="card-title mb-1">Chainsaw Man</h6>
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -225,7 +238,8 @@
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-3">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
-                                            <img src="images/jujutsukaisen.jpg" class="card-img-top recommendation-img" alt="Jujutsu Kaisen">
+                                            <img src="images/jujutsukaisen.jpg" class="card-img-top recommendation-img"
+                                                alt="Jujutsu Kaisen">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
                                                 <h6 class="card-title mb-1">Jujutsu Kaisen</h6>
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -237,7 +251,8 @@
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-3">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
-                                            <img src="images/myheroacademia.jpg" class="card-img-top recommendation-img" alt="My Hero Academia">
+                                            <img src="images/myheroacademia.jpg" class="card-img-top recommendation-img"
+                                                alt="My Hero Academia">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
                                                 <h6 class="card-title mb-1">My Hero Academia</h6>
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -249,7 +264,8 @@
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-3">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
-                                            <img src="images/kimetsu.jpg" class="card-img-top recommendation-img" alt="Kimetsu no Yaiba">
+                                            <img src="images/kimetsu.jpg" class="card-img-top recommendation-img"
+                                                alt="Kimetsu no Yaiba">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
                                                 <h6 class="card-title mb-1">Demon Slayer</h6>
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -261,13 +277,14 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Slide 2 -->
                             <div class="carousel-item">
                                 <div class="row g-3">
                                     <div class="col-12 col-md-6 col-lg-3">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
-                                            <img src="images/breakingbad.jpg" class="card-img-top recommendation-img" alt="Breaking Bad">
+                                            <img src="images/breakingbad.jpg" class="card-img-top recommendation-img"
+                                                alt="Breaking Bad">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
                                                 <h6 class="card-title mb-1">Breaking Bad</h6>
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -279,7 +296,8 @@
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-3">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
-                                            <img src="images/strangerthings.jpg" class="card-img-top recommendation-img" alt="Stranger Things">
+                                            <img src="images/strangerthings.jpg" class="card-img-top recommendation-img"
+                                                alt="Stranger Things">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
                                                 <h6 class="card-title mb-1">Stranger Things</h6>
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -291,7 +309,8 @@
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-3">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
-                                            <img src="images/kimetsu.jpg" class="card-img-top recommendation-img" alt="Kimetsu no Yaiba">
+                                            <img src="images/kimetsu.jpg" class="card-img-top recommendation-img"
+                                                alt="Kimetsu no Yaiba">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
                                                 <h6 class="card-title mb-1">Demon Slayer</h6>
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -303,7 +322,8 @@
                                     </div>
                                     <div class="col-12 col-md-6 col-lg-3">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
-                                            <img src="images/destinofinal.jpg" class="card-img-top recommendation-img" alt="Destí Final">
+                                            <img src="images/destinofinal.jpg" class="card-img-top recommendation-img"
+                                                alt="Destí Final">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
                                                 <h6 class="card-title mb-1">Destí final</h6>
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -316,26 +336,30 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Controles del carrusel -->
-                        <button class="carousel-control-prev" type="button" data-bs-target="#recommendationsCarousel" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#recommendationsCarousel"
+                            data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Anterior</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#recommendationsCarousel" data-bs-slide="next">
+                        <button class="carousel-control-next" type="button" data-bs-target="#recommendationsCarousel"
+                            data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Siguiente</span>
                         </button>
-                        
+
                         <!-- Indicadores -->
                         <div class="carousel-indicators position-static mt-3 mb-0">
-                            <button type="button" data-bs-target="#recommendationsCarousel" data-bs-slide-to="0" class="active bg-secondary" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#recommendationsCarousel" data-bs-slide-to="1" class="bg-secondary" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#recommendationsCarousel" data-bs-slide-to="0"
+                                class="active bg-secondary" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#recommendationsCarousel" data-bs-slide-to="1"
+                                class="bg-secondary" aria-label="Slide 2"></button>
                         </div>
                     </div>
-                    
+
                     <h4 id="continua-veient" class="px-3 mt-5">Continua veient</h4>
-                    
+
                     <!-- Carrusel continua veient -->
                     <div id="continueWatchingCarousel" class="carousel slide mb-4" data-bs-ride="false">
                         <div class="carousel-inner">
@@ -344,7 +368,8 @@
                                 <div class="row g-3 justify-content-center">
                                     <div class="col-md-4">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
-                                            <img src="images/chainsaw.jpeg" class="card-img-top recommendation-img" alt="Chainsaw Man">
+                                            <img src="images/chainsaw.jpeg" class="card-img-top recommendation-img"
+                                                alt="Chainsaw Man">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
                                                 <h6 class="card-title mb-1">Chainsaw Man</h6>
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -356,7 +381,8 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
-                                            <img src="images/house.jpg" class="card-img-top recommendation-img" alt="Dr. House">
+                                            <img src="images/house.jpg" class="card-img-top recommendation-img"
+                                                alt="Dr. House">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
                                                 <h6 class="card-title mb-1">Dr. House</h6>
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -368,7 +394,8 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="card bg-dark text-white h-100 recommendation-card" tabindex="0">
-                                            <img src="images/tlou.jpg" class="card-img-top recommendation-img" alt="The Last of Us">
+                                            <img src="images/tlou.jpg" class="card-img-top recommendation-img"
+                                                alt="The Last of Us">
                                             <div class="card-img-overlay p-2 d-flex flex-column justify-content-end">
                                                 <h6 class="card-title mb-1">The Last of Us</h6>
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -396,7 +423,7 @@
             <div class="row">
                 <div class="col-12">
                     <h4 id="llistes" class="px-3 mb-4">Les teves llistes</h4>
-                    
+
                     <div class="row g-3 px-3">
                         <!-- Lista 1 -->
                         <div class="col-6 col-md-3">
@@ -408,7 +435,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Lista 2 -->
                         <div class="col-6 col-md-3">
                             <div class="list-card h-100" tabindex="0">
@@ -419,7 +446,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Lista 3 -->
                         <div class="col-6 col-md-3">
                             <div class="list-card h-100" tabindex="0">
@@ -430,11 +457,12 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Lista 4 -->
                         <div class="col-6 col-md-3">
                             <div class="list-card h-100" tabindex="0">
-                                <img src="images/chainsawmovie.jpg" class="list-card-image" alt="Llista personalitzada 4">
+                                <img src="images/chainsawmovie.jpg" class="list-card-image"
+                                    alt="Llista personalitzada 4">
                                 <div class="list-card-content">
                                     <h6 class="list-card-title">Pel·lícules Recents</h6>
                                     <p class="list-card-count">4 títols</p>
@@ -450,40 +478,16 @@
     <!-- Separador visual -->
     <div class="section-divider"></div>
 
-    <!-- Series más vistes -->
-    <section>
-        <div class="container-fluid col-md-11 series-section">
-            <h1>Les series més vistes</h1>
-            <table class="table table-dark series-table">
-                <thead>
-                    <tr>
-                        <th>Serie</th>
-                        <th>Gènere</th>
-                        <th>Temporades</th>
-                        <th>Capítols</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Breaking Bad</td>
-                        <td>Drama</td>
-                        <td>5</td>
-                        <td>62</td>
-                    </tr>
-                    <tr>
-                        <td>La Casa de Papel</td>
-                        <td>Thriller</td>
-                        <td>5</td>
-                        <td>41</td>
-                    </tr>
-                    <tr>
-                        <td>Stranger Things</td>
-                        <td>Ciència-ficció</td>
-                        <td>4</td>
-                        <td>42</td>
-                    </tr>
-                </tbody>
-            </table>
+    <!-- Imagen Kimetsu Anuncio -->
+    <section class="kimetsu-section">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="kimetsu-container">
+                        <img src="images/kimetsu anuncio.jpg" alt="Kimetsu no Yaiba Anuncio" class="kimetsu-image">
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -495,93 +499,110 @@
         <div class="row">
             <div class="col-12">
                 <h4 class="px-3 mb-4">Novetats</h4>
-                
+
                 <!-- Grid de novetats -->
-                <div class="catalog-grid">
-                    <div class="catalog-item">
-                        <img src="images/rickymorty.jpg" alt="Rick y Morty" class="catalog-img">
-                        <div class="catalog-overlay">
-                            <div class="catalog-content">
-                                <h5>Rick & Morty</h5>
-                                <p>Una nova temporada de les aventures interdimensionals de Rick i Morty.</p>
-                                <span class="catalog-category">Estreno</span>
+                <div class="row g-3 px-3">
+                    <div class="col-6 col-md-3">
+                        <div class="catalog-item">
+                            <img src="images/rickymorty.jpg" alt="Rick y Morty" class="catalog-img">
+                            <div class="catalog-overlay">
+                                <div class="catalog-content">
+                                    <h5>Rick & Morty</h5>
+                                    <p>Una nova temporada de les aventures interdimensionals de Rick i Morty.</p>
+                                    <span class="catalog-category">Estreno</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="catalog-item">
-                        <img src="images/breakingbad.jpg" alt="Breaking Bad" class="catalog-img">
-                        <div class="catalog-overlay">
-                            <div class="catalog-content">
-                                <h5>Breaking Bad</h5>
-                                <p>La sèrie que va redefinir el gènere del drama criminal.</p>
-                                <span class="catalog-category">Estreno</span>
+
+                    <div class="col-6 col-md-3">
+                        <div class="catalog-item">
+                            <img src="images/breakingbad.jpg" alt="Breaking Bad" class="catalog-img">
+                            <div class="catalog-overlay">
+                                <div class="catalog-content">
+                                    <h5>Breaking Bad</h5>
+                                    <p>La sèrie que va redefinir el gènere del drama criminal.</p>
+                                    <span class="catalog-category">Estreno</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="catalog-item">
-                        <img src="images/kimetsu.jpg" alt="Kimetsu no Yaiba" class="catalog-img">
-                        <div class="catalog-overlay">
-                            <div class="catalog-content">
-                                <h5>Demon Slayer: El castell infinit</h5>
-                                <p>L'arc final de Demon Slayer arriba en format pel·lícula.</p>
-                                <span class="catalog-category">Estreno</span>
+
+                    <div class="col-6 col-md-3">
+                        <div class="catalog-item">
+                            <img src="images/kimetsu.jpg" alt="Kimetsu no Yaiba" class="catalog-img">
+                            <div class="catalog-overlay">
+                                <div class="catalog-content">
+                                    <h5>Demon Slayer: El castell infinit</h5>
+                                    <p>L'arc final de Demon Slayer arriba en format pel·lícula.</p>
+                                    <span class="catalog-category">Estreno</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="catalog-item">
-                        <img src="images/peakyblinders.jpg" alt="Peaky Blinders" class="catalog-img">
-                        <div class="catalog-overlay">
-                            <div class="catalog-content">
-                                <h5>Peaky Blinders</h5>
-                                <p>La família Shelby torna amb noves intrigues i conflictes.</p>
-                                <span class="catalog-category">Estreno</span>
+
+                    <div class="col-6 col-md-3">
+                        <div class="catalog-item">
+                            <img src="images/peakyblinders.jpg" alt="Peaky Blinders" class="catalog-img">
+                            <div class="catalog-overlay">
+                                <div class="catalog-content">
+                                    <h5>Peaky Blinders</h5>
+                                    <p>La família Shelby torna amb noves intrigues i conflictes.</p>
+                                    <span class="catalog-category">Estreno</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="catalog-item">
-                        <img src="images/onepiece.jpg" alt="One Piece" class="catalog-img">
-                        <div class="catalog-overlay">
-                            <div class="catalog-content">
-                                <h5>One Piece</h5>
-                                <p>La sèrie d'animació que segueix les aventures de Monkey D. Luffy i la seva tripulació.</p>
-                                <span class="catalog-category">Nova Temporada</span>
+
+                    <div class="col-6 col-md-3">
+                        <div class="catalog-item">
+                            <img src="images/onepiece.jpg" alt="One Piece" class="catalog-img">
+                            <div class="catalog-overlay">
+                                <div class="catalog-content">
+                                    <h5>One Piece</h5>
+                                    <p>La sèrie d'animació que segueix les aventures de Monkey D. Luffy i la seva
+                                        tripulació.</p>
+                                    <span class="catalog-category">Nova Temporada</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="catalog-item">
-                        <img src="images/attackontitan.jpg" alt="Attack on Titan" class="catalog-img">
-                        <div class="catalog-overlay">
-                            <div class="catalog-content">
-                                <h5>Attack on Titan Final Season</h5>
-                                <p>El final definitiu d'Attack on Titan en format cinematogràfic.</p>
-                                <span class="catalog-category">Estreno</span>
+
+                    <div class="col-6 col-md-3">
+                        <div class="catalog-item">
+                            <img src="images/attackontitan.jpg" alt="Attack on Titan" class="catalog-img">
+                            <div class="catalog-overlay">
+                                <div class="catalog-content">
+                                    <h5>Attack on Titan Final Season</h5>
+                                    <p>El final definitiu d'Attack on Titan en format cinematogràfic.</p>
+                                    <span class="catalog-category">Estreno</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="catalog-item">
-                        <img src="images/gachiakuta.jpg" alt="Gachiakuta" class="catalog-img">
-                        <div class="catalog-overlay">
-                            <div class="catalog-content">
-                                <h5>Gachiakuta</h5>
-                                <p>Un món on els perdedors lluiten per la seva supervivència.</p>
-                                <span class="catalog-category">Especial</span>
+
+                    <div class="col-6 col-md-3">
+                        <div class="catalog-item">
+                            <img src="images/gachiakuta.jpg" alt="Gachiakuta" class="catalog-img">
+                            <div class="catalog-overlay">
+                                <div class="catalog-content">
+                                    <h5>Gachiakuta</h5>
+                                    <p>Un món on els perdedors lluiten per la seva supervivència.</p>
+                                    <span class="catalog-category">Especial</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="catalog-item">
-                        <img src="images/dragonball.jpg" alt="Dragon Ball Z" class="catalog-img">
-                        <div class="catalog-overlay">
-                            <div class="catalog-content">
-                                <h5>Dragon Ball Z</h5>
-                                <p>La icònica sèrie d'acció i aventura que va marcar una època.</p>
-                                <span class="catalog-category">Remake</span>
+
+                    <div class="col-6 col-md-3">
+                        <div class="catalog-item">
+                            <img src="images/dragonball.jpg" alt="Dragon Ball Z" class="catalog-img">
+                            <div class="catalog-overlay">
+                                <div class="catalog-content">
+                                    <h5>Dragon Ball Z</h5>
+                                    <p>La icònica sèrie d'acció i aventura que va marcar una època.</p>
+                                    <span class="catalog-category">Remake</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -598,100 +619,121 @@
         <div class="row">
             <div class="col-12">
                 <h4 class="px-3 mb-4">Catáleg</h4>
-                
+
                 <!-- Grid del catálogo -->
-                <div class="catalog-grid">
-                    <div class="catalog-item">
-                        <img src="images/chainsaw.jpeg" alt="Chainsaw Man" class="catalog-img">
-                        <div class="catalog-overlay">
-                            <div class="catalog-content">
-                                <h5>Chainsaw Man</h5>
-                                <p>Una història èpica de dimonis i caçadors en un món fosc i brutal.</p>
-                                <span class="catalog-category">Acció</span>
+                <div class="row g-3 px-3">
+                    <div class="col-6 col-md-3">
+                        <div class="catalog-item">
+                            <img src="images/chainsaw.jpeg" alt="Chainsaw Man" class="catalog-img">
+                            <div class="catalog-overlay">
+                                <div class="catalog-content">
+                                    <h5>Chainsaw Man</h5>
+                                    <p>Una història èpica de dimonis i caçadors en un món fosc i brutal.</p>
+                                    <span class="catalog-category">Acció</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="catalog-item">
-                        <img src="images/attackontitan.jpg" alt="Attack on Titan" class="catalog-img">
-                        <div class="catalog-overlay">
-                            <div class="catalog-content">
-                                <h5>Attack on Titan</h5>
-                                <p>La humanitat lluita per sobreviure contra gegants que devoren humans.</p>
-                                <span class="catalog-category">Thriller</span>
+
+                    <div class="col-6 col-md-3">
+                        <div class="catalog-item">
+                            <img src="images/attackontitan.jpg" alt="Attack on Titan" class="catalog-img">
+                            <div class="catalog-overlay">
+                                <div class="catalog-content">
+                                    <h5>Attack on Titan</h5>
+                                    <p>La humanitat lluita per sobreviure contra gegants que devoren humans.</p>
+                                    <span class="catalog-category">Thriller</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="catalog-item">
-                        <img src="images/myheroacademia.jpg" alt="My Hero Academia" class="catalog-img">
-                        <div class="catalog-overlay">
-                            <div class="catalog-content">
-                                <h5>My Hero Academia</h5>
-                                <p>En un món on gairebé tots tenen superpoders, un noi sense poders somia ser heroi.</p>
-                                <span class="catalog-category">Acció</span>
+
+                    <div class="col-6 col-md-3">
+                        <div class="catalog-item">
+                            <img src="images/myheroacademia.jpg" alt="My Hero Academia" class="catalog-img">
+                            <div class="catalog-overlay">
+                                <div class="catalog-content">
+                                    <h5>My Hero Academia</h5>
+                                    <p>En un món on gairebé tots tenen superpoders, un noi sense poders somia ser heroi.
+                                    </p>
+                                    <span class="catalog-category">Acció</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="catalog-item">
-                        <img src="images/kimetsu.jpg" alt="Kimetsu no Yaiba" class="catalog-img">
-                        <div class="catalog-overlay">
-                            <div class="catalog-content">
-                                <h5>Demon Slayer</h5>
-                                <p>Un jove es converteix en caçador de dimonis per salvar la seva germana.</p>
-                                <span class="catalog-category">Acció</span>
+
+                    <div class="col-6 col-md-3">
+                        <div class="catalog-item">
+                            <img src="images/kimetsu.jpg" alt="Kimetsu no Yaiba" class="catalog-img">
+                            <div class="catalog-overlay">
+                                <div class="catalog-content">
+                                    <h5>Demon Slayer</h5>
+                                    <p>Un jove es converteix en caçador de dimonis per salvar la seva germana.</p>
+                                    <span class="catalog-category">Acció</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="catalog-item">
-                        <img src="images/breakingbad.jpg" alt="Breaking Bad" class="catalog-img">
-                        <div class="catalog-overlay">
-                            <div class="catalog-content">
-                                <h5>Breaking Bad</h5>
-                                <p>Un professor de química es converteix en fabricant de metanfetamines per assegurar el futur de la seva família.</p>
-                                <span class="catalog-category">Drama</span>
+
+                    <div class="col-6 col-md-3">
+                        <div class="catalog-item">
+                            <img src="images/breakingbad.jpg" alt="Breaking Bad" class="catalog-img">
+                            <div class="catalog-overlay">
+                                <div class="catalog-content">
+                                    <h5>Breaking Bad</h5>
+                                    <p>Un professor de química es converteix en fabricant de metanfetamines per
+                                        assegurar el futur de la seva família.</p>
+                                    <span class="catalog-category">Drama</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="catalog-item">
-                        <img src="images/strangerthings.jpg" alt="Stranger Things" class="catalog-img">
-                        <div class="catalog-overlay">
-                            <div class="catalog-content">
-                                <h5>Stranger Things</h5>
-                                <p>Un grup d'amics descobreix fenòmens sobrenaturals i experiments governamentals secrets al seu poble.</p>
-                                <span class="catalog-category">Ciència-ficció</span>
+
+                    <div class="col-6 col-md-3">
+                        <div class="catalog-item">
+                            <img src="images/strangerthings.jpg" alt="Stranger Things" class="catalog-img">
+                            <div class="catalog-overlay">
+                                <div class="catalog-content">
+                                    <h5>Stranger Things</h5>
+                                    <p>Un grup d'amics descobreix fenòmens sobrenaturals i experiments governamentals
+                                        secrets al seu poble.</p>
+                                    <span class="catalog-category">Ciència-ficció</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="catalog-item">
-                        <img src="images/lacasadepapel.jpg" alt="La Casa de Papel" class="catalog-img">
-                        <div class="catalog-overlay">
-                            <div class="catalog-content">
-                                <h5>La Casa de Papel</h5>
-                                <p>Un grup de lladres executa l'assalt més perfecte de la història a la Fàbrica Nacional de Moneda.</p>
-                                <span class="catalog-category">Thriller</span>
+
+                    <div class="col-6 col-md-3">
+                        <div class="catalog-item">
+                            <img src="images/lacasadepapel.jpg" alt="La Casa de Papel" class="catalog-img">
+                            <div class="catalog-overlay">
+                                <div class="catalog-content">
+                                    <h5>La Casa de Papel</h5>
+                                    <p>Un grup de lladres executa l'assalt més perfecte de la història a la Fàbrica
+                                        Nacional de Moneda.</p>
+                                    <span class="catalog-category">Thriller</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="catalog-item">
-                        <img src="images/destinofinal.jpg" alt="Destí Final" class="catalog-img">
-                        <div class="catalog-overlay">
-                            <div class="catalog-content">
-                                <h5>Destí Final</h5>
-                                <p>Un grup d'estudiants sobreviu a un accident mortal i descobreix que la mort els persegueix.</p>
-                                <span class="catalog-category">Horror</span>
+
+                    <div class="col-6 col-md-3">
+                        <div class="catalog-item">
+                            <img src="images/destinofinal.jpg" alt="Destí Final" class="catalog-img">
+                            <div class="catalog-overlay">
+                                <div class="catalog-content">
+                                    <h5>Destí Final</h5>
+                                    <p>Un grup d'estudiants sobreviu a un accident mortal i descobreix que la mort els
+                                        persegueix.</p>
+                                    <span class="catalog-category">Horror</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Botón Veure més -->
         <div class="text-center mt-4">
             <button class="btn btn-outline-primary btn-lg veure-mes-btn" type="button">
@@ -715,34 +757,39 @@
                             <a href="" class="footer-link">Política de Privacidad</a>
                         </div>
                     </div>
-                    
+
                     <!-- Sección redes sociales -->
                     <div class="col-lg-6">
                         <h5 class="footer-title">Síguenos</h5>
                         <div class="social-media">
                             <a href="https://facebook.com" class="social-btn" role="button" title="Facebook">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                    <path
+                                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                                 </svg>
                             </a>
                             <a href="https://twitter.com" class="social-btn" role="button" title="X (Twitter)">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                    <path
+                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                                 </svg>
                             </a>
                             <a href="https://tiktok.com" class="social-btn" role="button" title="TikTok">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                                    <path
+                                        d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
                                 </svg>
                             </a>
                             <a href="https://instagram.com" class="social-btn" role="button" title="Instagram">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                                 </svg>
                             </a>
                             <a href="https://youtube.com" class="social-btn" role="button" title="YouTube">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                                 </svg>
                             </a>
                         </div>
@@ -750,7 +797,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Copyright -->
         <div class="footer-bottom">
             <div class="container">
@@ -768,226 +815,226 @@
 
     <!-- Lógica del carrusel principal -->
     <script>
-    (function () {
-        const CAROUSEL_ID = 'heroCarousel';
-        const interval = 8000;
+        (function () {
+            const CAROUSEL_ID = 'heroCarousel';
+            const interval = 8000;
 
-        const carouselEl = document.getElementById(CAROUSEL_ID);
-        if (!carouselEl) return;
+            const carouselEl = document.getElementById(CAROUSEL_ID);
+            if (!carouselEl) return;
 
-        const carouselInstance = new bootstrap.Carousel(carouselEl, {
-            interval: false,
-            ride: false,
-            pause: false
-        });
-
-        const indicators = Array.from(carouselEl.querySelectorAll('.carousel-indicators button'));
-        let slideTimer = null;
-
-        // Limpiar timer
-        function clearTimer() {
-            if (slideTimer) {
-                clearTimeout(slideTimer);
-                slideTimer = null;
-            }
-        }
-
-        // Reset todos los fills
-        function resetAllFills() {
-            indicators.forEach(btn => {
-                const fill = btn.querySelector('.indicator-fill');
-                if (fill) {
-                    fill.style.transition = 'none';
-                    fill.style.width = '0%';
-                }
+            const carouselInstance = new bootstrap.Carousel(carouselEl, {
+                interval: false,
+                ride: false,
+                pause: false
             });
-        }
 
-        // Iniciar animación de fill
-        function startFillForIndex(index, duration = interval) {
-            clearTimer();
-            resetAllFills();
+            const indicators = Array.from(carouselEl.querySelectorAll('.carousel-indicators button'));
+            let slideTimer = null;
 
-            const btn = indicators[index];
-            if (!btn) return;
-            const fill = btn.querySelector('.indicator-fill');
-            if (!fill) return;
+            // Limpiar timer
+            function clearTimer() {
+                if (slideTimer) {
+                    clearTimeout(slideTimer);
+                    slideTimer = null;
+                }
+            }
 
-            fill.style.transition = 'none';
-            fill.style.width = '0%';
-            requestAnimationFrame(() => {
+            // Reset todos los fills
+            function resetAllFills() {
+                indicators.forEach(btn => {
+                    const fill = btn.querySelector('.indicator-fill');
+                    if (fill) {
+                        fill.style.transition = 'none';
+                        fill.style.width = '0%';
+                    }
+                });
+            }
+
+            // Iniciar animación de fill
+            function startFillForIndex(index, duration = interval) {
+                clearTimer();
+                resetAllFills();
+
+                const btn = indicators[index];
+                if (!btn) return;
+                const fill = btn.querySelector('.indicator-fill');
+                if (!fill) return;
+
+                fill.style.transition = 'none';
+                fill.style.width = '0%';
                 requestAnimationFrame(() => {
-                    fill.style.transition = `width ${duration}ms linear`;
-                    fill.style.width = '100%';
+                    requestAnimationFrame(() => {
+                        fill.style.transition = `width ${duration}ms linear`;
+                        fill.style.width = '100%';
+                    });
+                });
+
+                slideTimer = setTimeout(() => {
+                    // Manejar navegación al último slide
+                    const totalSlides = carouselEl.querySelectorAll('.carousel-item').length;
+                    if (index === totalSlides - 1) {
+                        carouselInstance.to(0);
+                    } else {
+                        carouselInstance.next();
+                    }
+                }, duration);
+            }
+
+            // Obtener índice del slide activo
+            function getActiveIndex() {
+                const items = carouselEl.querySelectorAll('.carousel-item');
+                for (let i = 0; i < items.length; i++) {
+                    if (items[i].classList.contains('active')) return i;
+                }
+                return 0;
+            }
+
+            // Inicializar carrusel
+            function initializeCarousel() {
+                resetAllFills();
+                setTimeout(() => {
+                    const activeIndex = getActiveIndex();
+                    startFillForIndex(activeIndex);
+                }, 200);
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initializeCarousel);
+            } else {
+                initializeCarousel();
+            }
+
+            carouselEl.addEventListener('slid.bs.carousel', (event) => {
+                clearTimer();
+                resetAllFills();
+                setTimeout(() => {
+                    const activeIndex = getActiveIndex();
+                    startFillForIndex(activeIndex);
+                }, 100);
+            });
+
+            indicators.forEach((btn, i) => {
+                btn.addEventListener('click', (ev) => {
+                    ev.stopPropagation();
+                    clearTimer();
+                    resetAllFills();
+                    carouselInstance.to(i);
+                    // Esperamos un poco más para asegurar que el slide cambió
+                    setTimeout(() => {
+                        const actualIndex = getActiveIndex();
+                        startFillForIndex(actualIndex);
+                    }, 150);
                 });
             });
 
-            slideTimer = setTimeout(() => {
-                // Manejar navegación al último slide
-                const totalSlides = carouselEl.querySelectorAll('.carousel-item').length;
-                if (index === totalSlides - 1) {
-                    carouselInstance.to(0);
-                } else {
-                    carouselInstance.next();
-                }
-            }, duration);
-        }
-
-        // Obtener índice del slide activo
-        function getActiveIndex() {
-            const items = carouselEl.querySelectorAll('.carousel-item');
-            for (let i = 0; i < items.length; i++) {
-                if (items[i].classList.contains('active')) return i;
-            }
-            return 0;
-        }
-
-        // Inicializar carrusel
-        function initializeCarousel() {
-            resetAllFills();
-            setTimeout(() => {
-                const activeIndex = getActiveIndex();
-                startFillForIndex(activeIndex);
-            }, 200);
-        }
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializeCarousel);
-        } else {
-            initializeCarousel();
-        }
-
-        carouselEl.addEventListener('slid.bs.carousel', (event) => {
-            clearTimer();
-            resetAllFills();
-            setTimeout(() => {
-                const activeIndex = getActiveIndex();
-                startFillForIndex(activeIndex);
-            }, 100);
-        });
-
-        indicators.forEach((btn, i) => {
-            btn.addEventListener('click', (ev) => {
-                ev.stopPropagation();
+            let isHoverPaused = false;
+            carouselEl.addEventListener('mouseenter', () => {
+                if (isHoverPaused) return;
+                isHoverPaused = true;
                 clearTimer();
-                resetAllFills();
-                carouselInstance.to(i);
-                // Esperamos un poco más para asegurar que el slide cambió
-                setTimeout(() => {
-                    const actualIndex = getActiveIndex();
-                    startFillForIndex(actualIndex);
-                }, 150);
+                indicators.forEach(btn => {
+                    const fill = btn.querySelector('.indicator-fill');
+                    if (fill) {
+                        const computedPx = window.getComputedStyle(fill).width;
+                        fill.style.transition = 'none';
+                        fill.style.width = computedPx;
+                    }
+                });
             });
-        });
 
-        let isHoverPaused = false;
-        carouselEl.addEventListener('mouseenter', () => {
-            if (isHoverPaused) return;
-            isHoverPaused = true;
-            clearTimer();
-            indicators.forEach(btn => {
+            // Reanudar en mouse leave
+            carouselEl.addEventListener('mouseleave', () => {
+                if (!isHoverPaused) return;
+                isHoverPaused = false;
+
+                const idx = getActiveIndex();
+                const btn = indicators[idx];
+                if (!btn) {
+                    startFillForIndex(idx);
+                    return;
+                }
                 const fill = btn.querySelector('.indicator-fill');
-                if (fill) {
-                    const computedPx = window.getComputedStyle(fill).width;
-                    fill.style.transition = 'none';
-                    fill.style.width = computedPx;
+                if (!fill) {
+                    startFillForIndex(idx);
+                    return;
                 }
-            });
-        });
 
-        // Reanudar en mouse leave
-        carouselEl.addEventListener('mouseleave', () => {
-            if (!isHoverPaused) return;
-            isHoverPaused = false;
+                const parentWidth = btn.clientWidth;
+                const currentPx = parseFloat(window.getComputedStyle(fill).width);
+                const percent = Math.min(100, (currentPx / parentWidth) * 100);
+                const remaining = Math.max(0, interval * (1 - percent / 100));
 
-            const idx = getActiveIndex();
-            const btn = indicators[idx];
-            if (!btn) {
-                startFillForIndex(idx);
-                return;
-            }
-            const fill = btn.querySelector('.indicator-fill');
-            if (!fill) {
-                startFillForIndex(idx);
-                return;
-            }
+                requestAnimationFrame(() => {
+                    fill.style.transition = `width ${remaining}ms linear`;
+                    fill.style.width = '100%';
+                });
 
-            const parentWidth = btn.clientWidth;
-            const currentPx = parseFloat(window.getComputedStyle(fill).width);
-            const percent = Math.min(100, (currentPx / parentWidth) * 100);
-            const remaining = Math.max(0, interval * (1 - percent / 100));
-
-            requestAnimationFrame(() => {
-                fill.style.transition = `width ${remaining}ms linear`;
-                fill.style.width = '100%';
+                slideTimer = setTimeout(() => {
+                    carouselInstance.next();
+                }, remaining);
             });
 
-            slideTimer = setTimeout(() => {
-                carouselInstance.next();
-            }, remaining);
-        });
-
-        // Click en controles
-        const controls = carouselEl.querySelectorAll('.carousel-control-prev, .carousel-control-next');
-        controls.forEach(ctrl => {
-            ctrl.addEventListener('click', () => {
-                clearTimer();
-                resetAllFills();
+            // Click en controles
+            const controls = carouselEl.querySelectorAll('.carousel-control-prev, .carousel-control-next');
+            controls.forEach(ctrl => {
+                ctrl.addEventListener('click', () => {
+                    clearTimer();
+                    resetAllFills();
+                });
             });
-        });
 
-    })();
+        })();
     </script>
 
     <!-- Control del menú desplegable externo -->
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const profileBtn = document.getElementById('profileIconBtn');
-        const userDropdown = document.getElementById('userDropdown');
-        
-        // Función para togglear el menú
-        function toggleUserMenu(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            if (userDropdown.style.display === 'none' || userDropdown.style.display === '') {
-                userDropdown.style.display = 'block';
-                setTimeout(() => {
-                    userDropdown.classList.add('show');
-                }, 10);
-            } else {
-                userDropdown.classList.remove('show');
-                setTimeout(() => {
-                    userDropdown.style.display = 'none';
-                }, 300);
+        document.addEventListener('DOMContentLoaded', function () {
+            const profileBtn = document.getElementById('profileIconBtn');
+            const userDropdown = document.getElementById('userDropdown');
+
+            // Función para togglear el menú
+            function toggleUserMenu(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                if (userDropdown.style.display === 'none' || userDropdown.style.display === '') {
+                    userDropdown.style.display = 'block';
+                    setTimeout(() => {
+                        userDropdown.classList.add('show');
+                    }, 10);
+                } else {
+                    userDropdown.classList.remove('show');
+                    setTimeout(() => {
+                        userDropdown.style.display = 'none';
+                    }, 300);
+                }
             }
-        }
-        
-        // Añadir event listener al botón
-        if (profileBtn) {
-            profileBtn.addEventListener('click', toggleUserMenu);
-        }
-        
-        // Cerrar al hacer click fuera
-        document.addEventListener('click', function(e) {
-            if (!profileBtn.contains(e.target) && !userDropdown.contains(e.target)) {
-                userDropdown.classList.remove('show');
-                setTimeout(() => {
-                    userDropdown.style.display = 'none';
-                }, 300);
+
+            // Añadir event listener al botón
+            if (profileBtn) {
+                profileBtn.addEventListener('click', toggleUserMenu);
             }
+
+            // Cerrar al hacer click fuera
+            document.addEventListener('click', function (e) {
+                if (!profileBtn.contains(e.target) && !userDropdown.contains(e.target)) {
+                    userDropdown.classList.remove('show');
+                    setTimeout(() => {
+                        userDropdown.style.display = 'none';
+                    }, 300);
+                }
+            });
+
+            // Cerrar con Escape
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    userDropdown.classList.remove('show');
+                    setTimeout(() => {
+                        userDropdown.style.display = 'none';
+                    }, 300);
+                }
+            });
         });
-        
-        // Cerrar con Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                userDropdown.classList.remove('show');
-                setTimeout(() => {
-                    userDropdown.style.display = 'none';
-                }, 300);
-            }
-        });
-    });
     </script>
 
     <!-- Menú desplegable de usuario (fuera del navbar para evitar problemas de z-index) -->
@@ -996,7 +1043,8 @@
             <li>
                 <a class="dropdown-item user-dropdown-item" href="#">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="dropdown-icon">
-                        <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1 0 .33.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.66Z"/>
+                        <path
+                            d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1 0 .33.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.66Z" />
                     </svg>
                     Opciones
                 </a>
@@ -1004,16 +1052,20 @@
             <li>
                 <a class="dropdown-item user-dropdown-item" href="#">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="dropdown-icon">
-                        <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                        <path
+                            d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
                     </svg>
                     Notificaciones
                 </a>
             </li>
-            <li><hr class="dropdown-divider"></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
             <li>
                 <a class="dropdown-item user-dropdown-item" href="#">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="dropdown-icon">
-                        <path d="m12 21.35-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35Z"/>
+                        <path
+                            d="m12 21.35-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35Z" />
                     </svg>
                     Favoritos
                 </a>
@@ -1021,7 +1073,8 @@
             <li>
                 <a class="dropdown-item user-dropdown-item" href="#">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="dropdown-icon">
-                        <path d="M14 2H6C4.9 2 4 2.9 4 4v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
+                        <path
+                            d="M14 2H6C4.9 2 4 2.9 4 4v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z" />
                     </svg>
                     Listas
                 </a>
@@ -1029,28 +1082,29 @@
             <li>
                 <a class="dropdown-item user-dropdown-item" href="#">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="dropdown-icon">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z" />
                     </svg>
                     Historial
                 </a>
             </li>
         </ul>
     </div>
-    
+
     <!-- Script de navegación suave -->
     <script>
         // Navegación suave para enlaces internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    
+
                     // Cerrar el menú hamburguesa en móvil después de hacer clic
                     const navbarCollapse = document.getElementById('collapsibleNavbar');
                     if (navbarCollapse && navbarCollapse.classList.contains('show')) {
@@ -1061,7 +1115,7 @@
             });
         });
     </script>
-    
+
     <!-- Animaciones GSAP -->
     <script src="./animations.js"></script>
 </body>
