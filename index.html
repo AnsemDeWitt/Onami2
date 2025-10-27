@@ -22,17 +22,26 @@
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">
+        <div class="container d-flex align-items-center">
+            <!-- Logo a la izquierda -->
+            <a class="navbar-brand me-auto" href="#">
                 <img src="images/logo1.png" class="img-fluid logo" alt="Logo">
             </a>
 
-            <!-- Botón hamburguesa para móvil -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" 
+            <!-- Botón hamburguesa centrado (solo visible en móvil) -->
+            <button class="navbar-toggler mx-auto d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" 
                     aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+            <!-- Botón de perfil - siempre visible a la derecha -->
+            <button id="profileIconBtn" class="btn rounded-circle shadow-sm d-flex align-items-center justify-content-center profile-btn ms-auto"
+                    type="button" title="Perfil">
+                <img src="images/profile.jpg" alt="Perfil" class="rounded-circle profile-img"
+                     onerror="this.style.display='none'; this.parentNode.insertAdjacentHTML('beforeend','<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;#ffffff&quot;><path d=&quot;M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3z&quot;/><path d=&quot;M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z&quot;/></svg>');">
+            </button>
+
+            <!-- Menú colapsable -->
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav ms-md-4 gap-md-3 me-auto">
                     <li class="nav-item">
@@ -67,13 +76,6 @@
                     </form>
                 </div>
             </div>
-
-            <!-- Botón de perfil - siempre visible, fuera del menú colapsable -->
-            <button id="profileIconBtn" class="btn rounded-circle shadow-sm d-flex align-items-center justify-content-center profile-btn"
-                    type="button" title="Perfil">
-                <img src="images/profile.jpg" alt="Perfil" class="rounded-circle profile-img"
-                     onerror="this.style.display='none'; this.parentNode.insertAdjacentHTML('beforeend','<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 16 16&quot; fill=&quot;#ffffff&quot;><path d=&quot;M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3z&quot;/><path d=&quot;M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z&quot;/></svg>');">
-            </button>
         </div>
     </nav>
 
