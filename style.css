@@ -55,7 +55,9 @@ body {
     min-width: 200px;
     margin-top: 8px;
     z-index: 10000 !important;
-    position: relative;
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
 }
 
 .user-dropdown-item {
@@ -67,7 +69,6 @@ body {
     margin: 2px 8px;
     display: flex;
     align-items: center;
-    gap: 10px;
 }
 
 .user-dropdown-item:hover {
@@ -75,12 +76,6 @@ body {
     color: #ffffff;
     transform: translateX(5px);
     box-shadow: 0 4px 15px rgba(42, 133, 167, 0.3);
-}
-
-.dropdown-icon {
-    font-size: 1.1rem;
-    width: 20px;
-    text-align: center;
 }
 
 .user-dropdown-menu .dropdown-divider {
