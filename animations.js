@@ -65,17 +65,6 @@ const animateSectionTitles = () => {
 
 // Optimized card animations
 const animateCards = () => {
-    // Recommendation cards (load time)
-    gsap.utils.toArray(".recommendation-card").forEach((card, index) => {
-        gsap.from(card, {
-            duration: ANIMATION_CONFIG.duration.normal,
-            y: 40,
-            opacity: 0,
-            ease: ANIMATION_CONFIG.ease.bounce,
-            delay: 1.5 + (index * 0.1)
-        });
-    });
-
     // Recommendation title (load time)
     gsap.from(".recommendations-section h4", {
         duration: ANIMATION_CONFIG.duration.normal,
@@ -120,31 +109,6 @@ const animateKimetsuImage = () => {
     });
 };
 
-// Optimized hover effects
-const initHoverEffects = () => {
-    const cards = document.querySelectorAll('.recommendation-card, .list-card');
-    
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            gsap.to(card, {
-                duration: ANIMATION_CONFIG.duration.fast,
-                y: -8,
-                scale: 1.02,
-                ease: ANIMATION_CONFIG.ease.smooth
-            });
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            gsap.to(card, {
-                duration: ANIMATION_CONFIG.duration.fast,
-                y: 0,
-                scale: 1,
-                ease: ANIMATION_CONFIG.ease.smooth
-            });
-        });
-    });
-};
-
 // Background parallax effect
 const initParallaxEffect = () => {
     gsap.to("body", {
@@ -165,7 +129,6 @@ const init = () => {
     animateSectionTitles();
     animateCards();
     animateKimetsuImage();
-    initHoverEffects();
     initParallaxEffect();
 };
 
