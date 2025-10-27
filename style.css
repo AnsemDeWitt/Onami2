@@ -1,33 +1,34 @@
-/* CSS Variables */
 :root {
-    --primary-color: #2A85A7;
-    --bg-dark: #212529;
-    --text-white: #ffffff;
-    --text-gray: rgba(255, 255, 255, 0.8);
-    --border-radius: 8px;
-    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --section-padding: 60px 0;
-    --navbar-height: 80px;
+
+    --primary-color: #2A85A7;          /* Azul principal de la marca */
+    --bg-dark: #212529;                /* Color de fondo oscuro */
+    --text-white: #ffffff;             /* Texto blanco */
+    --text-gray: rgba(255, 255, 255, 0.8); /* Texto gris claro */
+    
+    --border-radius: 8px;              /* Bordes redondeados */
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra de elementos */
+    --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Animación suave */
+    
+    --section-padding: 60px 0;         /* Espaciado entre secciones */
+    --navbar-height: 80px;             /* Altura de la barra de navegación */
 }
 
-/* Base styles */
 * {
-    box-sizing: border-box;
+    box-sizing: border-box; /* Hace que el padding y border se incluyan en el tamaño total */
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Navegación suave entre secciones */
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.6;
+    background-color: var(--bg-dark); /* Fondo oscuro para toda la página */
+    color: var(--text-white);         /* Texto blanco por defecto */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /* Fuentes del sistema */
+    line-height: 1.6; /* Espaciado entre líneas de texto */
 }
 
-/* Utilities */
+/* Ajuste para navegación con anclas */
 .scroll-offset {
     scroll-margin-top: var(--navbar-height);
 }
@@ -36,60 +37,134 @@ body {
     color: var(--text-gray);
 }
 
-/* Performance optimizations */
-.recommendation-card, .list-card, .catalog-item, .carousel-item, .kimetsu-image { will-change: transform; backface-visibility: hidden; transform: translateZ(0); }
+/* Optimizaciones de rendimiento para animaciones */
+.recommendation-card, .list-card, .catalog-item, .carousel-item, .kimetsu-image { 
+    will-change: transform; 
+    backface-visibility: hidden; 
+    transform: translateZ(0); 
+}
 
-.navbar { contain: layout style paint; }
+/* Optimización de la barra de navegación */
+.navbar { 
+    contain: layout style paint; 
+}
 
-/* ====== NAVEGACIÓN ====== */
-.section-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.1) 80%, transparent 100%); margin: 40px 0; opacity: 0.8; }
-.section-divider-subtle { width: 60%; height: 1px; background: rgba(255, 255, 255, 0.15); margin: 35px auto; opacity: 0.7; }
+/* Separador principal con degradado */
+.section-divider { 
+    width: 100%; 
+    height: 1px; 
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.1) 80%, transparent 100%); 
+    margin: 40px 0; 
+    opacity: 0.8; 
+}
 
-.navbar-brand .logo { width: auto; height: 40px; max-width: 150px; object-fit: contain; }
-.navbar { z-index: 999998 !important; position: relative; }
+/* Separador sutil más pequeño */
+.section-divider-subtle { 
+    width: 60%; 
+    height: 1px; 
+    background: rgba(255, 255, 255, 0.15); 
+    margin: 35px auto; 
+    opacity: 0.7; 
+}
+
+.navbar-brand .logo { 
+    width: auto; 
+    height: 40px; 
+    max-width: 150px; 
+    object-fit: contain; 
+}
+
+/* Configuración general de la barra de navegación */
+.navbar { 
+    z-index: 999998 !important; 
+    position: relative; 
+}
+
+/* Estilo del botón de perfil */
 .profile-btn {
+    /* Tamaño fijo del botón */
     width: 44px;
     height: 44px;
     min-width: 44px;
     min-height: 44px;
     max-width: 44px;
     max-height: 44px;
+    
+    /* Apariencia */
     padding: 0;
-    background-color: var(--primary-color);
-    border: 0;
-    border-radius: 50% !important;
+    background-color: var(--primary-color); /* Color azul de la marca */
+    border: 0;                              /* Sin borde */
+    border-radius: 50% !important;          /* Forma circular */
+    
+    /* Posicionamiento */
     position: relative;
-    z-index: 99999 !important;
+    z-index: 99999 !important; /* Aparece por encima de otros elementos */
+    
+    /* Centrado del contenido */
     display: flex !important;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    flex-shrink: 0; /* No se reduce en tamaño */
 }
 
+/* Ocultar la flecha del menú desplegable */
 .profile-btn::after {
-    display: none !important; /* Ocultar la flecha de dropdown por defecto */
+    display: none !important;
 }
 
+/* Imagen de perfil dentro del botón */
 .profile-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
+    object-fit: cover;     /* La imagen se ajusta sin deformarse */
+    border-radius: 50%;    /* Forma circular */
     display: block;
 }
 
-/* Navbar responsivo */
-.navbar-toggler { border: none; padding: 6px 8px; font-size: 1.1rem; transition: all 0.3s ease; }
+/* Botón del menú hamburguesa */
+.navbar-toggler { 
+    border: none;              /* Sin borde */
+    padding: 6px 8px;          /* Espaciado interno */
+    font-size: 1.1rem;         /* Tamaño del icono */
+    transition: all 0.3s ease; /* Animación suave */
+}
 
-.navbar-toggler-centered { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1000; padding: 8px; }
-.profile-btn-mobile { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); }
+/* Posición centrada del botón hamburguesa */
+.navbar-toggler-centered { 
+    position: absolute; 
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 1000; 
+    padding: 8px; 
+}
 
-.profile-btn-responsive { margin-left: 1.5rem; }
+/* Botón de perfil en versión móvil */
+.profile-btn-mobile { 
+    position: absolute; 
+    right: 15px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+}
 
-.search-container { margin-right: 1.5rem; }
+/* Espaciado del botón de perfil en pantallas grandes */
+.profile-btn-responsive { 
+    margin-left: 1.5rem; 
+}
 
-@media (max-width: 767.98px) { .search-container { margin-right: 0; } }
+/* Espaciado del buscador */
+.search-container { 
+    margin-right: 1.5rem; 
+}
 
+/* En móviles: quitar margen del buscador */
+@media (max-width: 767.98px) { 
+    .search-container { 
+        margin-right: 0; 
+    } 
+}
+
+/* En móviles: posicionar botón de perfil a la derecha */
 @media (max-width: 767.98px) {
     .profile-btn-responsive {
         position: absolute !important;
@@ -232,10 +307,11 @@ input:focus,
 .recommendation-img {
     height: 200px;
     object-fit: cover;
+    transition: transform 0.8s ease;
 }
 
 .recommendation-card:hover .recommendation-img {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .recommendation-card .card-img-overlay {
@@ -424,7 +500,7 @@ input:focus,
     border-radius: 4px;
     background-color: rgba(255,255,255,0.25);
     border: 0;
-    transition: transform .18s ease, background-color .18s ease;
+    transition: transform .3s ease, background-color .3s ease;
     margin: 0;
     position: relative;
     overflow: hidden;
@@ -432,22 +508,24 @@ input:focus,
 
 .carousel-indicators button.active {
     background-color: rgba(255,255,255,0.18);
-    transform: scale(1.02);
+    transform: scale(1.01);
     box-shadow: 0 0 6px rgba(0,0,0,0.12);
 }
 
-/* Relleno animado */
+/* Relleno animado de progreso */
 .carousel-indicators .indicator-fill {
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
     width: 0%;
+    height: 100%;                /* Asegurar que tiene altura completa */
     background-color: #ffffff;
     opacity: 0.95;
     border-radius: 4px;
     pointer-events: none;
     transform-origin: left center;
+    transition: width 0ms linear;  /* Se controla desde JavaScript */
 }
 
 /* Responsive para móvil */
@@ -676,8 +754,8 @@ input:focus,
 }
 
 .social-btn:hover {
-    background: #2A85A7;
-    border-color: #2A85A7;
+    background: rgba(42, 133, 167, 0.8);
+    border-color: rgba(42, 133, 167, 0.8);
 }
 
 .footer-bottom {
@@ -836,37 +914,6 @@ input:focus,
     text-decoration: none;
 }
 
-/* Facebook */
-.social-btn:hover:nth-child(1) {
-    background: #1877f2;
-    border-color: #1877f2;
-}
-
-/* X (Twitter) */
-.social-btn:hover:nth-child(2) {
-    background: #000000;
-    border-color: #000000;
-}
-
-/* TikTok */
-.social-btn:hover:nth-child(3) {
-    background: linear-gradient(135deg, #ff0050, #00f2ea);
-    border-color: #ff0050;
-}
-
-/* Instagram */
-.social-btn:hover:nth-child(4) {
-    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-    border-color: #833ab4;
-}
-
-/* YouTube */
-.social-btn:hover:nth-child(5) {
-    background: #ff0000;
-    border-color: #ff0000;
-}
-
-/* Responsive para iconos sociales */
 @media (max-width: 768px) {
     .social-media {
         justify-content: center;
@@ -886,7 +933,6 @@ input:focus,
     }
 }
 
-/* ====== SECCIÓN KIMETSU ANUNCIO ====== */
 .kimetsu-section {
     padding: 60px 0;
     overflow: hidden;
@@ -911,7 +957,6 @@ input:focus,
     display: block;
 }
 
-/* Responsive para la imagen Kimetsu */
 @media (max-width: 1200px) {
     .kimetsu-image {
         max-width: 95%;
