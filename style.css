@@ -5,6 +5,18 @@
     --recommendations-top-spacing: -50px; /* MUCHO MÁS CERCA del carrusel principal */
 }
 
+/* Scroll suave para navegación interna */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ajuste para el offset del navbar fijo */
+#continua-veient,
+#llistes,
+#contacte {
+    scroll-margin-top: 80px;
+}
+
 /* Estilo general */
 body {
     background-color: #212529;
