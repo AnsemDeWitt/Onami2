@@ -240,11 +240,11 @@ input:focus,
 
 /* Todos los captions del carrusel principal */
 .carousel-caption-custom {
-    bottom: 100px !important;
+    bottom: 150px !important;
 }
 
 .carousel-item:nth-child(3) .carousel-caption {
-    bottom: 100px !important;
+    bottom: 150px !important;
 }
 
 /* Video trailer */
