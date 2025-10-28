@@ -21,6 +21,11 @@ const animateSectionTitles = () => {
 };
 const animateCards = () => {
     gsap.from(".recommendations-section h4", { duration: ANIMATION_CONFIG.duration.normal, x: -50, opacity: 0, ease: ANIMATION_CONFIG.ease.smooth, delay: 1.2 });
+    gsap.from("#recommendationsCarousel", { duration: ANIMATION_CONFIG.duration.normal, y: 30, opacity: 0, ease: ANIMATION_CONFIG.ease.smooth, delay: 1.4 });
+    gsap.from("#continueWatchingCarousel", {
+        scrollTrigger: { trigger: "#continueWatchingCarousel", start: "top 85%", end: "bottom 15%", toggleActions: ANIMATION_CONFIG.triggers.actions },
+        duration: ANIMATION_CONFIG.duration.normal, y: 30, opacity: 0, ease: ANIMATION_CONFIG.ease.smooth
+    });
     gsap.utils.toArray(".list-card").forEach((card, index) => {
         gsap.from(card, {
             scrollTrigger: { trigger: card, start: "top 85%", end: "bottom 15%", toggleActions: ANIMATION_CONFIG.triggers.actions },

@@ -64,7 +64,18 @@ body {
 .navbar-brand .logo { width: auto; height: 40px; }
 @media (max-width: 767.98px) { 
     .search-container { margin-right: 0; } 
-    .profile-btn-responsive { margin-left: 0; }
+    .profile-btn-responsive { margin-left: auto; flex-shrink: 0; }
+    .mobile-search-container { flex: 1; max-width: 200px; margin: 0 0.75rem; }
+    .mobile-search-input { height: 32px !important; font-size: 13px !important; }
+    .user-dropdown-external { top: 56px; right: 15px; }
+    .user-dropdown-external .user-dropdown-menu { min-width: 160px; font-size: 0.9rem; }
+    .user-dropdown-external .user-dropdown-item { padding: 10px 16px; font-size: 0.85rem; }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; }
+    .navbar-nav { display: none; }
+    .navbar-nav .nav-link { padding: 0.75rem 0; font-size: 1.1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+    .navbar-nav .nav-link:hover { background-color: rgba(255, 255, 255, 0.1); border-radius: 0.5rem; padding-left: 1rem; transition: all 0.3s ease; }
+    .navbar-collapse form { width: 100% !important; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+    .navbar-collapse .input-group { width: 100%; }
 }
 .navbar .container { position: relative; }
 @media (min-width: 768px) { 
@@ -121,7 +132,6 @@ body {
     box-shadow: 0 4px 15px rgba(42, 133, 167, 0.3); text-decoration: none; outline: none;
 }
 .user-dropdown-external .dropdown-divider { border-color: rgba(42, 133, 167, 0.3); margin: 8px 12px; }
-@media (max-width: 767.98px) { .user-dropdown-external { top: 56px; right: 15px; } .user-dropdown-external .user-dropdown-menu { min-width: 160px; font-size: 0.9rem; } .user-dropdown-external .user-dropdown-item { padding: 10px 16px; font-size: 0.85rem; } }
 .recommendation-card:focus, .carousel-control-prev:focus, .carousel-control-next:focus, .carousel-indicators button:focus { outline: none !important; box-shadow: none !important; }
 
 .recommendations-section { margin-top: -80px !important; position: relative; z-index: 3; }
@@ -318,6 +328,7 @@ body {
     opacity: 1;
 }
 
+/* Mejorar legibilidad en móvil */
 @media (max-width: 768px) {
     .catalog-overlay {
         opacity: 1;
@@ -346,6 +357,7 @@ body {
         padding: 8px 10px 12px 10px;
     }
     
+    /* Títulos de sección en móviles */
     h4 {
         font-size: 1.25rem !important;
         margin-bottom: 1rem !important;
@@ -372,6 +384,7 @@ body {
     }
 }
 
+/* Para tablets */
 @media (min-width: 769px) and (max-width: 1024px) {
     .catalog-item:active .catalog-overlay {
         opacity: 1;
@@ -394,9 +407,9 @@ body {
 }
 
 .catalog-content p {
-    font-size: 0.6rem;
-    line-height: 1.25;
-    margin-bottom: 8px;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
     opacity: 0.95;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     font-weight: 400;
@@ -414,6 +427,7 @@ body {
     letter-spacing: 0.5px;
 }
 
+/* Responsive para el catálogo */
 @media (max-width: 768px) {
     .catalog-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
     .catalog-content h5 { font-size: 0.85rem !important; }
@@ -488,29 +502,29 @@ body {
 
 @media (max-width: 768px) {
     .kimetsu-section {
-        padding: 20px 0;
+        padding: 20px 0; /* Menos padding para dar más espacio a la imagen */
     }
     
     .kimetsu-container {
-        padding: 0 5px;
+        padding: 0 5px; /* Menos padding lateral */
     }
     
     .kimetsu-image {
-        max-width: 100%;
+        max-width: 100%; /* Ocupa todo el ancho disponible */
     }
 }
 
 @media (max-width: 480px) {
     .kimetsu-section {
-        padding: 15px 0;
+        padding: 15px 0; /* Aún menos padding para pantallas muy pequeñas */
     }
     
     .kimetsu-container {
-        padding: 0 2px;
+        padding: 0 2px; /* Padding mínimo */
     }
     
     .kimetsu-image {
-        max-width: 100%;
-        border-radius: 8px;
+        max-width: 100%; /* Ocupa todo el ancho */
+        border-radius: 8px; /* Un poco de border radius para que se vea mejor */
     }
 }
