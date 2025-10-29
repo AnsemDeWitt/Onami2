@@ -59,6 +59,8 @@
             </button>
         </div>
     </nav>
+
+    <!-- Carrusel principal -->
     <div id="heroCarousel" class="carousel slide" data-bs-ride="false">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"><span class="indicator-fill"></span></button>
@@ -160,6 +162,8 @@
             <span class="visually-hidden">Siguiente</span>
         </button>
     </div>
+
+    <!-- Secció Recomanacions -->
     <section class="mt-0 recommendations-section">
         <div class="container-fluid">
             <div class="row">
@@ -282,7 +286,7 @@
                             </div>
                         </div>
 
-                        <!-- Controles del carrusel -->
+                        <!-- Controls del carrusel -->
                         <button class="carousel-control-prev" type="button" data-bs-target="#recommendationsCarousel"
                             data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -294,7 +298,7 @@
                             <span class="visually-hidden">Siguiente</span>
                         </button>
 
-                        <!-- Indicadores -->
+                        <!-- Indicadors -->
                         <div class="carousel-indicators position-static mt-3 mb-0">
                             <button type="button" data-bs-target="#recommendationsCarousel" data-bs-slide-to="0"
                                 class="active bg-secondary" aria-current="true" aria-label="Slide 1"></button>
@@ -417,7 +421,7 @@
     <!-- Separador visual -->
     <div class="section-divider"></div>
 
-    <!-- Imagen Kimetsu Anuncio -->
+    <!-- Imatge publicitària Kimetsu -->
     <section class="kimetsu-section">
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -439,7 +443,7 @@
             <div class="col-12">
                 <h4 class="px-3 mb-4">Novetats</h4>
 
-                <!-- Grid de novetats -->
+                <!-- Graella de novetats -->
                 <div class="row g-3 px-3">
                     <div class="col-6 col-md-3">
                         <div class="catalog-item">
@@ -559,7 +563,7 @@
             <div class="col-12">
                 <h4 class="px-3 mb-4">Catáleg</h4>
 
-                <!-- Grid del catálogo -->
+                <!-- Graella del catàleg -->
                 <div class="row g-3 px-3">
                     <div class="col-6 col-md-3">
                         <div class="catalog-item">
@@ -672,7 +676,7 @@
             </div>
         </div>
 
-        <!-- Botón Veure més -->
+        <!-- Botó Veure més -->
         <div class="text-center mt-4">
             <button class="btn btn-outline-primary btn-lg veure-mes-btn" type="button">
                 VEURE MES
@@ -680,7 +684,7 @@
         </div>
     </section>
 
-    <!-- Footer millorat -->
+    <!-- Footer -->
     <footer id="contacte" class="modern-footer">
         <div class="footer-main">
             <div class="container">
@@ -750,7 +754,7 @@
         </div>
     </footer>
 
-    <!-- Lógica del carrusel principal -->
+    <!-- Lògica del carrusel principal -->
     <script>
         (function () {
             const CAROUSEL_ID = 'heroCarousel';
@@ -812,11 +816,11 @@
 
                 console.log('Elemento fill encontrado, iniciando animación...');
                 
-                // Resetear el fill
+                // Reset
                 fill.style.transition = 'none';
                 fill.style.width = '0%';
                 
-                // Forzar redibujado y luego animar
+
                 requestAnimationFrame(() => {
                     requestAnimationFrame(() => {
                         fill.style.transition = `width ${duration}ms linear`;
@@ -948,7 +952,7 @@
         })();
     </script>
 
-    <!-- Control del menú desplegable externo -->
+    <!-- Control del menú desplegable extern -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const profileBtn = document.getElementById('profileIconBtn');

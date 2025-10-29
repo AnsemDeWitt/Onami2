@@ -271,7 +271,7 @@ body {
     }
 }
 
-/* Sección Catáleg */
+/* Secció Catàleg */
 .catalog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -426,7 +426,7 @@ body {
     .catalog-content p { font-size: 0.9rem; }
 }
 
-/* ====== ICONOS SOCIALES FOOTER ====== */
+/* ====== ICONES SOCIALS FOOTER ====== */
 .social-btn {
     color: #ffffff;
     transition: all 0.3s ease;
